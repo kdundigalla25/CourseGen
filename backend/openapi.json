@@ -1,0 +1,3514 @@
+{
+  "openapi": "3.1.0",
+  "info": {
+    "title": "UNC Course Planner",
+    "version": "0.6.0"
+  },
+  "paths": {
+    "/api/v1/health": {
+      "get": {
+        "summary": "Health",
+        "operationId": "health_api_v1_health_get",
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "additionalProperties": {
+                    "type": "string"
+                  },
+                  "type": "object",
+                  "title": "Response Health Api V1 Health Get"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/audits/parse": {
+      "post": {
+        "summary": "Parse Audit",
+        "operationId": "parse_audit_api_v1_audits_parse_post",
+        "requestBody": {
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "$ref": "#/components/schemas/Body_parse_audit_api_v1_audits_parse_post"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AuditDraft"
+                }
+              }
+            }
+          },
+          "413": {
+            "description": "Content Too Large",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Unprocessable Content",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "503": {
+            "description": "Service Unavailable",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/audits/review": {
+      "post": {
+        "summary": "Confirm Review",
+        "operationId": "confirm_review_api_v1_audits_review_post",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ReviewRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ReviewedAudit"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Unprocessable Content",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/curricula": {
+      "get": {
+        "summary": "Curricula",
+        "operationId": "curricula_api_v1_curricula_get",
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AvailableCurricula"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/curricula/resolve": {
+      "post": {
+        "summary": "Resolve Reviewed Curriculum",
+        "operationId": "resolve_reviewed_curriculum_api_v1_curricula_resolve_post",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ReviewedAudit"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CurriculumResolution"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Unprocessable Content",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "503": {
+            "description": "Service Unavailable",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/terms": {
+      "get": {
+        "summary": "Terms",
+        "operationId": "terms_api_v1_terms_get",
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "items": {
+                    "$ref": "#/components/schemas/AvailableTerm"
+                  },
+                  "type": "array",
+                  "title": "Response Terms Api V1 Terms Get"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/courses": {
+      "get": {
+        "summary": "Courses",
+        "operationId": "courses_api_v1_courses_get",
+        "parameters": [
+          {
+            "name": "snapshot_id",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Snapshot Id"
+            }
+          },
+          {
+            "name": "q",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "default": "",
+              "title": "Q"
+            }
+          },
+          {
+            "name": "term_id",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Term Id"
+            }
+          },
+          {
+            "name": "attribute_id",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Attribute Id"
+            }
+          },
+          {
+            "name": "offset",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "minimum": 0,
+              "default": 0,
+              "title": "Offset"
+            }
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "maximum": 100,
+              "minimum": 1,
+              "default": 30,
+              "title": "Limit"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CourseSearchResult"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/courses/{course_id}/sections": {
+      "get": {
+        "summary": "Sections",
+        "operationId": "sections_api_v1_courses__course_id__sections_get",
+        "parameters": [
+          {
+            "name": "course_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Course Id"
+            }
+          },
+          {
+            "name": "snapshot_id",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Snapshot Id"
+            }
+          },
+          {
+            "name": "term_id",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Term Id"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SectionOptions"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/recommendations": {
+      "post": {
+        "summary": "Recommendations",
+        "operationId": "recommendations_api_v1_recommendations_post",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/RecommendationRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RecommendationResult"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Unprocessable Content",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "503": {
+            "description": "Service Unavailable",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/schedules/generate": {
+      "post": {
+        "summary": "Schedules",
+        "operationId": "schedules_api_v1_schedules_generate_post",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ScheduleRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ScheduleResult"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Unprocessable Content",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "503": {
+            "description": "Service Unavailable",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/schedules/export/{format}": {
+      "post": {
+        "summary": "Export Schedule",
+        "operationId": "export_schedule_api_v1_schedules_export__format__post",
+        "parameters": [
+          {
+            "name": "format",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "enum": [
+                "ics",
+                "json"
+              ],
+              "type": "string",
+              "title": "Format"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ScheduleExportRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Unprocessable Content"
+          },
+          "404": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Not Found"
+          },
+          "503": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Service Unavailable"
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "AttemptStatus": {
+        "type": "string",
+        "enum": [
+          "completed",
+          "in_progress",
+          "unknown"
+        ],
+        "title": "AttemptStatus"
+      },
+      "AuditDraft": {
+        "properties": {
+          "schema_version": {
+            "type": "string",
+            "const": "1",
+            "title": "Schema Version",
+            "default": "1"
+          },
+          "parser_version": {
+            "type": "string",
+            "const": "tracker-0.2",
+            "title": "Parser Version",
+            "default": "tracker-0.2"
+          },
+          "support": {
+            "type": "string",
+            "enum": [
+              "tracker_structure_detected",
+              "unsupported"
+            ],
+            "title": "Support"
+          },
+          "review_state": {
+            "type": "string",
+            "enum": [
+              "extraction_only",
+              "needs_review"
+            ],
+            "title": "Review State",
+            "default": "needs_review"
+          },
+          "page_count": {
+            "type": "integer",
+            "title": "Page Count"
+          },
+          "pages": {
+            "items": {
+              "$ref": "#/components/schemas/ExtractedPage"
+            },
+            "type": "array",
+            "title": "Pages"
+          },
+          "curriculum": {
+            "$ref": "#/components/schemas/CurriculumSelection"
+          },
+          "attempts": {
+            "items": {
+              "$ref": "#/components/schemas/CourseAttempt"
+            },
+            "type": "array",
+            "maxItems": 500,
+            "title": "Attempts"
+          },
+          "requirements": {
+            "items": {
+              "$ref": "#/components/schemas/AuditRequirement"
+            },
+            "type": "array",
+            "maxItems": 500,
+            "title": "Requirements"
+          },
+          "issues": {
+            "items": {
+              "$ref": "#/components/schemas/Issue"
+            },
+            "type": "array",
+            "title": "Issues"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "support",
+          "page_count",
+          "pages",
+          "issues"
+        ],
+        "title": "AuditDraft"
+      },
+      "AuditRequirement": {
+        "properties": {
+          "id": {
+            "type": "string",
+            "title": "Id"
+          },
+          "parent_id": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Parent Id"
+          },
+          "label": {
+            "type": "string",
+            "title": "Label"
+          },
+          "reported_status": {
+            "type": "string",
+            "enum": [
+              "satisfied",
+              "not_satisfied",
+              "unknown"
+            ],
+            "title": "Reported Status",
+            "default": "unknown"
+          },
+          "completion": {
+            "type": "string",
+            "enum": [
+              "completed",
+              "in_progress",
+              "mixed",
+              "unknown"
+            ],
+            "title": "Completion",
+            "default": "unknown"
+          },
+          "rule_id": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Rule Id"
+          },
+          "evidence": {
+            "items": {
+              "$ref": "#/components/schemas/Evidence"
+            },
+            "type": "array",
+            "title": "Evidence"
+          },
+          "kind": {
+            "type": "string",
+            "enum": [
+              "group",
+              "course",
+              "elective",
+              "policy",
+              "non_course",
+              "unknown"
+            ],
+            "title": "Kind",
+            "default": "unknown"
+          },
+          "attempt_ids": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "title": "Attempt Ids"
+          },
+          "amounts": {
+            "items": {
+              "$ref": "#/components/schemas/RequirementAmount"
+            },
+            "type": "array",
+            "title": "Amounts"
+          },
+          "needs_review": {
+            "type": "boolean",
+            "title": "Needs Review",
+            "default": false
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "id",
+          "label"
+        ],
+        "title": "AuditRequirement"
+      },
+      "AvailableCurricula": {
+        "properties": {
+          "gen_ed": {
+            "items": {
+              "$ref": "#/components/schemas/GenEdRulePack"
+            },
+            "type": "array",
+            "title": "Gen Ed"
+          },
+          "programs": {
+            "items": {
+              "$ref": "#/components/schemas/ProgramRulePack"
+            },
+            "type": "array",
+            "title": "Programs"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "gen_ed",
+          "programs"
+        ],
+        "title": "AvailableCurricula"
+      },
+      "AvailableTerm": {
+        "properties": {
+          "term": {
+            "$ref": "#/components/schemas/Term"
+          },
+          "snapshot_id": {
+            "type": "string",
+            "title": "Snapshot Id"
+          },
+          "classification": {
+            "type": "string",
+            "enum": [
+              "fictional",
+              "public"
+            ],
+            "title": "Classification"
+          },
+          "notice": {
+            "type": "string",
+            "title": "Notice"
+          },
+          "sources": {
+            "items": {
+              "$ref": "#/components/schemas/SourceSnapshot"
+            },
+            "type": "array",
+            "title": "Sources"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "term",
+          "snapshot_id",
+          "classification",
+          "notice",
+          "sources"
+        ],
+        "title": "AvailableTerm"
+      },
+      "Body_parse_audit_api_v1_audits_parse_post": {
+        "properties": {
+          "file": {
+            "type": "string",
+            "contentMediaType": "application/octet-stream",
+            "title": "File"
+          }
+        },
+        "type": "object",
+        "required": [
+          "file"
+        ],
+        "title": "Body_parse_audit_api_v1_audits_parse_post"
+      },
+      "CandidateSchedule": {
+        "properties": {
+          "id": {
+            "type": "string",
+            "title": "Id"
+          },
+          "courses": {
+            "items": {
+              "$ref": "#/components/schemas/ScheduledCourse"
+            },
+            "type": "array",
+            "title": "Courses"
+          },
+          "total_credits": {
+            "type": "number",
+            "title": "Total Credits"
+          },
+          "score": {
+            "type": "number",
+            "title": "Score"
+          },
+          "score_breakdown": {
+            "additionalProperties": {
+              "type": "number"
+            },
+            "type": "object",
+            "title": "Score Breakdown"
+          },
+          "reasons": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "title": "Reasons"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "id",
+          "courses",
+          "total_credits",
+          "score",
+          "score_breakdown",
+          "reasons"
+        ],
+        "title": "CandidateSchedule"
+      },
+      "CountingPolicy": {
+        "properties": {
+          "id": {
+            "type": "string",
+            "title": "Id"
+          },
+          "kind": {
+            "type": "string",
+            "enum": [
+              "one_focus_per_course",
+              "exclusive",
+              "exam_focus_limit",
+              "manual"
+            ],
+            "title": "Kind"
+          },
+          "requirement_ids": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "title": "Requirement Ids"
+          },
+          "limit": {
+            "anyOf": [
+              {
+                "type": "integer",
+                "minimum": 0.0
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Limit"
+          },
+          "description": {
+            "type": "string",
+            "title": "Description"
+          },
+          "source_ids": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "minItems": 1,
+            "title": "Source Ids"
+          },
+          "enforcement": {
+            "type": "string",
+            "const": "not_evaluated",
+            "title": "Enforcement",
+            "default": "not_evaluated"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "id",
+          "kind",
+          "description",
+          "source_ids"
+        ],
+        "title": "CountingPolicy"
+      },
+      "Course": {
+        "properties": {
+          "id": {
+            "type": "string",
+            "title": "Id"
+          },
+          "title": {
+            "type": "string",
+            "title": "Title"
+          },
+          "credits_min": {
+            "type": "number",
+            "minimum": 0.0,
+            "title": "Credits Min"
+          },
+          "credits_max": {
+            "type": "number",
+            "minimum": 0.0,
+            "title": "Credits Max"
+          },
+          "source_snapshot_id": {
+            "type": "string",
+            "title": "Source Snapshot Id"
+          },
+          "prerequisite_text": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Prerequisite Text"
+          },
+          "edition": {
+            "type": "string",
+            "title": "Edition",
+            "default": "unversioned"
+          },
+          "description": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Description"
+          },
+          "repeatable": {
+            "type": "boolean",
+            "title": "Repeatable",
+            "default": false
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "id",
+          "title",
+          "credits_min",
+          "credits_max",
+          "source_snapshot_id"
+        ],
+        "title": "Course"
+      },
+      "CourseAttempt": {
+        "properties": {
+          "id": {
+            "type": "string",
+            "title": "Id"
+          },
+          "course_id": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Course Id"
+          },
+          "raw_course_code": {
+            "type": "string",
+            "title": "Raw Course Code",
+            "default": ""
+          },
+          "title": {
+            "type": "string",
+            "title": "Title",
+            "default": ""
+          },
+          "term": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Term"
+          },
+          "grade": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Grade"
+          },
+          "credits": {
+            "anyOf": [
+              {
+                "type": "number",
+                "minimum": 0.0
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Credits"
+          },
+          "status": {
+            "$ref": "#/components/schemas/AttemptStatus",
+            "default": "unknown"
+          },
+          "origin": {
+            "type": "string",
+            "enum": [
+              "institution",
+              "transfer",
+              "exam",
+              "unknown"
+            ],
+            "title": "Origin",
+            "default": "unknown"
+          },
+          "evidence": {
+            "items": {
+              "$ref": "#/components/schemas/Evidence"
+            },
+            "type": "array",
+            "title": "Evidence"
+          },
+          "needs_review": {
+            "type": "boolean",
+            "title": "Needs Review",
+            "default": false
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "id"
+        ],
+        "title": "CourseAttempt"
+      },
+      "CourseDesignation": {
+        "properties": {
+          "course_id": {
+            "type": "string",
+            "title": "Course Id"
+          },
+          "edition": {
+            "type": "string",
+            "title": "Edition"
+          },
+          "attribute_id": {
+            "type": "string",
+            "title": "Attribute Id"
+          },
+          "source_snapshot_id": {
+            "type": "string",
+            "title": "Source Snapshot Id"
+          },
+          "section_id": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Section Id"
+          },
+          "term_id": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Term Id"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "course_id",
+          "edition",
+          "attribute_id",
+          "source_snapshot_id"
+        ],
+        "title": "CourseDesignation"
+      },
+      "CourseRecord": {
+        "properties": {
+          "course": {
+            "$ref": "#/components/schemas/Course"
+          },
+          "designations": {
+            "items": {
+              "$ref": "#/components/schemas/CourseDesignation"
+            },
+            "type": "array",
+            "title": "Designations"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "course",
+          "designations"
+        ],
+        "title": "CourseRecord"
+      },
+      "CourseSearchResult": {
+        "properties": {
+          "snapshot_id": {
+            "type": "string",
+            "title": "Snapshot Id"
+          },
+          "classification": {
+            "type": "string",
+            "enum": [
+              "fictional",
+              "public"
+            ],
+            "title": "Classification"
+          },
+          "notice": {
+            "type": "string",
+            "title": "Notice"
+          },
+          "total": {
+            "type": "integer",
+            "title": "Total"
+          },
+          "offset": {
+            "type": "integer",
+            "title": "Offset"
+          },
+          "limit": {
+            "type": "integer",
+            "title": "Limit"
+          },
+          "courses": {
+            "items": {
+              "$ref": "#/components/schemas/CourseRecord"
+            },
+            "type": "array",
+            "title": "Courses"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "snapshot_id",
+          "classification",
+          "notice",
+          "total",
+          "offset",
+          "limit",
+          "courses"
+        ],
+        "title": "CourseSearchResult"
+      },
+      "CourseSuggestion": {
+        "properties": {
+          "course_id": {
+            "type": "string",
+            "title": "Course Id"
+          },
+          "edition": {
+            "type": "string",
+            "title": "Edition"
+          },
+          "title": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Title"
+          },
+          "credits_min": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Credits Min"
+          },
+          "credits_max": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Credits Max"
+          },
+          "availability": {
+            "type": "string",
+            "enum": [
+              "available",
+              "not_offered",
+              "missing_catalog",
+              "unknown_meetings",
+              "no_qualifying_sections"
+            ],
+            "title": "Availability"
+          },
+          "selectable": {
+            "type": "boolean",
+            "title": "Selectable"
+          },
+          "eligibility": {
+            "type": "string",
+            "enum": [
+              "unverified",
+              "conditional"
+            ],
+            "title": "Eligibility",
+            "default": "unverified"
+          },
+          "prerequisite_text": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Prerequisite Text"
+          },
+          "warnings": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "title": "Warnings"
+          },
+          "matches": {
+            "items": {
+              "$ref": "#/components/schemas/RequirementMatch"
+            },
+            "type": "array",
+            "title": "Matches"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "course_id",
+          "edition",
+          "title",
+          "credits_min",
+          "credits_max",
+          "availability",
+          "selectable",
+          "warnings",
+          "matches"
+        ],
+        "title": "CourseSuggestion"
+      },
+      "CurriculumResolution": {
+        "properties": {
+          "state": {
+            "type": "string",
+            "enum": [
+              "selected",
+              "ambiguous",
+              "conflict",
+              "unsupported"
+            ],
+            "title": "State"
+          },
+          "gen_ed_version": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Gen Ed Version"
+          },
+          "method": {
+            "type": "string",
+            "enum": [
+              "metadata",
+              "requirements",
+              "unresolved"
+            ],
+            "title": "Method",
+            "default": "unresolved"
+          },
+          "candidate_versions": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "title": "Candidate Versions"
+          },
+          "unsupported_cohort_years": {
+            "items": {
+              "type": "integer"
+            },
+            "type": "array",
+            "title": "Unsupported Cohort Years"
+          },
+          "evidence": {
+            "items": {
+              "$ref": "#/components/schemas/SelectionEvidence"
+            },
+            "type": "array",
+            "title": "Evidence"
+          },
+          "programs": {
+            "items": {
+              "$ref": "#/components/schemas/ProgramSelection"
+            },
+            "type": "array",
+            "title": "Programs"
+          },
+          "warnings": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "title": "Warnings"
+          },
+          "rule_revisions": {
+            "additionalProperties": {
+              "type": "string"
+            },
+            "type": "object",
+            "title": "Rule Revisions"
+          },
+          "coverage": {
+            "type": "string",
+            "const": "partial",
+            "title": "Coverage",
+            "default": "partial"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "state",
+          "candidate_versions",
+          "unsupported_cohort_years",
+          "evidence",
+          "programs",
+          "warnings",
+          "rule_revisions"
+        ],
+        "title": "CurriculumResolution"
+      },
+      "CurriculumSelection": {
+        "properties": {
+          "starting_year": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Starting Year"
+          },
+          "entry_term": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Entry Term"
+          },
+          "reported_catalog_year": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Reported Catalog Year"
+          },
+          "gen_ed_version": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Gen Ed Version"
+          },
+          "method": {
+            "type": "string",
+            "enum": [
+              "unresolved",
+              "metadata",
+              "requirements",
+              "student_confirmed"
+            ],
+            "title": "Method",
+            "default": "unresolved"
+          },
+          "candidate_versions": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "title": "Candidate Versions"
+          },
+          "evidence": {
+            "items": {
+              "$ref": "#/components/schemas/Evidence"
+            },
+            "type": "array",
+            "title": "Evidence"
+          },
+          "program_terms": {
+            "additionalProperties": {
+              "type": "string"
+            },
+            "type": "object",
+            "title": "Program Terms"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "title": "CurriculumSelection"
+      },
+      "ErrorDetail": {
+        "properties": {
+          "code": {
+            "type": "string",
+            "title": "Code"
+          },
+          "message": {
+            "type": "string",
+            "title": "Message"
+          },
+          "fields": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "title": "Fields"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "code",
+          "message"
+        ],
+        "title": "ErrorDetail"
+      },
+      "ErrorResponse": {
+        "properties": {
+          "error": {
+            "$ref": "#/components/schemas/ErrorDetail"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "error"
+        ],
+        "title": "ErrorResponse"
+      },
+      "Evidence": {
+        "properties": {
+          "page": {
+            "type": "integer",
+            "minimum": 1.0,
+            "title": "Page"
+          },
+          "line": {
+            "type": "integer",
+            "minimum": 1.0,
+            "title": "Line"
+          },
+          "text": {
+            "type": "string",
+            "title": "Text"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "page",
+          "line",
+          "text"
+        ],
+        "title": "Evidence"
+      },
+      "ExcludedCourse": {
+        "properties": {
+          "requirement_id": {
+            "type": "string",
+            "title": "Requirement Id"
+          },
+          "course_id": {
+            "type": "string",
+            "title": "Course Id"
+          },
+          "reason": {
+            "type": "string",
+            "enum": [
+              "completed",
+              "in_progress"
+            ],
+            "title": "Reason"
+          },
+          "message": {
+            "type": "string",
+            "title": "Message"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "requirement_id",
+          "course_id",
+          "reason",
+          "message"
+        ],
+        "title": "ExcludedCourse"
+      },
+      "ExtractedPage": {
+        "properties": {
+          "number": {
+            "type": "integer",
+            "title": "Number"
+          },
+          "text": {
+            "type": "string",
+            "title": "Text"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "number",
+          "text"
+        ],
+        "title": "ExtractedPage"
+      },
+      "FilteredCourse": {
+        "properties": {
+          "course_id": {
+            "type": "string",
+            "title": "Course Id"
+          },
+          "available_bundles": {
+            "type": "integer",
+            "title": "Available Bundles"
+          },
+          "rejected_reasons": {
+            "additionalProperties": {
+              "type": "integer"
+            },
+            "type": "object",
+            "title": "Rejected Reasons"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "course_id",
+          "available_bundles",
+          "rejected_reasons"
+        ],
+        "title": "FilteredCourse"
+      },
+      "GenEdRulePack": {
+        "properties": {
+          "schema_version": {
+            "type": "string",
+            "const": "1",
+            "title": "Schema Version",
+            "default": "1"
+          },
+          "id": {
+            "type": "string",
+            "pattern": "^[a-z0-9][a-z0-9-]+$",
+            "title": "Id"
+          },
+          "revision": {
+            "type": "string",
+            "title": "Revision"
+          },
+          "coverage": {
+            "type": "string",
+            "const": "partial",
+            "title": "Coverage",
+            "default": "partial"
+          },
+          "sources": {
+            "items": {
+              "$ref": "#/components/schemas/RuleSource"
+            },
+            "type": "array",
+            "minItems": 1,
+            "title": "Sources"
+          },
+          "requirements": {
+            "items": {
+              "$ref": "#/components/schemas/RequirementDefinition"
+            },
+            "type": "array",
+            "minItems": 1,
+            "title": "Requirements"
+          },
+          "policies": {
+            "items": {
+              "$ref": "#/components/schemas/CountingPolicy"
+            },
+            "type": "array",
+            "title": "Policies"
+          },
+          "limitations": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "minItems": 1,
+            "title": "Limitations"
+          },
+          "scope": {
+            "type": "string",
+            "const": "gen_ed",
+            "title": "Scope",
+            "default": "gen_ed"
+          },
+          "family": {
+            "type": "string",
+            "const": "ideas_in_action",
+            "title": "Family",
+            "default": "ideas_in_action"
+          },
+          "cohort_year": {
+            "type": "integer",
+            "maximum": 2100.0,
+            "minimum": 1900.0,
+            "title": "Cohort Year"
+          },
+          "catalog_year": {
+            "type": "string",
+            "pattern": "^\\d{4}-\\d{4}$",
+            "title": "Catalog Year"
+          },
+          "signature_rule_ids": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "minItems": 1,
+            "title": "Signature Rule Ids"
+          },
+          "signature_cohort_years": {
+            "items": {
+              "type": "integer"
+            },
+            "type": "array",
+            "minItems": 1,
+            "title": "Signature Cohort Years"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "id",
+          "revision",
+          "sources",
+          "requirements",
+          "limitations",
+          "cohort_year",
+          "catalog_year",
+          "signature_rule_ids",
+          "signature_cohort_years"
+        ],
+        "title": "GenEdRulePack"
+      },
+      "HTTPValidationError": {
+        "properties": {
+          "detail": {
+            "items": {
+              "$ref": "#/components/schemas/ValidationError"
+            },
+            "type": "array",
+            "title": "Detail"
+          }
+        },
+        "type": "object",
+        "title": "HTTPValidationError"
+      },
+      "Issue": {
+        "properties": {
+          "id": {
+            "type": "string",
+            "title": "Id",
+            "default": ""
+          },
+          "code": {
+            "type": "string",
+            "title": "Code"
+          },
+          "message": {
+            "type": "string",
+            "title": "Message"
+          },
+          "page": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Page"
+          },
+          "target_id": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Target Id"
+          },
+          "review_required": {
+            "type": "boolean",
+            "title": "Review Required",
+            "default": false
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "code",
+          "message"
+        ],
+        "title": "Issue"
+      },
+      "ManualRequirement": {
+        "properties": {
+          "requirement_id": {
+            "type": "string",
+            "title": "Requirement Id"
+          },
+          "label": {
+            "type": "string",
+            "title": "Label"
+          },
+          "reason": {
+            "type": "string",
+            "enum": [
+              "status_unknown",
+              "non_course",
+              "policy_or_elective",
+              "unmapped",
+              "ambiguous_mapping",
+              "no_available_candidate",
+              "curriculum_unresolved"
+            ],
+            "title": "Reason"
+          },
+          "message": {
+            "type": "string",
+            "title": "Message"
+          },
+          "amounts": {
+            "items": {
+              "$ref": "#/components/schemas/RequirementAmount"
+            },
+            "type": "array",
+            "title": "Amounts"
+          },
+          "evidence": {
+            "items": {
+              "$ref": "#/components/schemas/Evidence"
+            },
+            "type": "array",
+            "title": "Evidence"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "requirement_id",
+          "label",
+          "reason",
+          "message",
+          "amounts",
+          "evidence"
+        ],
+        "title": "ManualRequirement"
+      },
+      "Meeting": {
+        "properties": {
+          "kind": {
+            "type": "string",
+            "enum": [
+              "timed",
+              "asynchronous",
+              "arranged",
+              "unknown"
+            ],
+            "title": "Kind"
+          },
+          "weekday": {
+            "anyOf": [
+              {
+                "type": "integer",
+                "maximum": 6.0,
+                "minimum": 0.0
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Weekday"
+          },
+          "start_minute": {
+            "anyOf": [
+              {
+                "type": "integer",
+                "exclusiveMaximum": 1440.0,
+                "minimum": 0.0
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Start Minute"
+          },
+          "end_minute": {
+            "anyOf": [
+              {
+                "type": "integer",
+                "maximum": 1440.0,
+                "exclusiveMinimum": 0.0
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "End Minute"
+          },
+          "start_date": {
+            "anyOf": [
+              {
+                "type": "string",
+                "format": "date"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Start Date"
+          },
+          "end_date": {
+            "anyOf": [
+              {
+                "type": "string",
+                "format": "date"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "End Date"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "kind"
+        ],
+        "title": "Meeting"
+      },
+      "ProgramRulePack": {
+        "properties": {
+          "schema_version": {
+            "type": "string",
+            "const": "1",
+            "title": "Schema Version",
+            "default": "1"
+          },
+          "id": {
+            "type": "string",
+            "pattern": "^[a-z0-9][a-z0-9-]+$",
+            "title": "Id"
+          },
+          "revision": {
+            "type": "string",
+            "title": "Revision"
+          },
+          "coverage": {
+            "type": "string",
+            "const": "partial",
+            "title": "Coverage",
+            "default": "partial"
+          },
+          "sources": {
+            "items": {
+              "$ref": "#/components/schemas/RuleSource"
+            },
+            "type": "array",
+            "minItems": 1,
+            "title": "Sources"
+          },
+          "requirements": {
+            "items": {
+              "$ref": "#/components/schemas/RequirementDefinition"
+            },
+            "type": "array",
+            "minItems": 1,
+            "title": "Requirements"
+          },
+          "policies": {
+            "items": {
+              "$ref": "#/components/schemas/CountingPolicy"
+            },
+            "type": "array",
+            "title": "Policies"
+          },
+          "limitations": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "minItems": 1,
+            "title": "Limitations"
+          },
+          "scope": {
+            "type": "string",
+            "const": "program",
+            "title": "Scope",
+            "default": "program"
+          },
+          "program_id": {
+            "type": "string",
+            "title": "Program Id"
+          },
+          "program_name": {
+            "type": "string",
+            "title": "Program Name"
+          },
+          "audit_program_names": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "minItems": 1,
+            "title": "Audit Program Names"
+          },
+          "requirement_term": {
+            "type": "string",
+            "pattern": "^\\d{4} (Fall|Spr|Spring|SumI|SumII|Summer)$",
+            "title": "Requirement Term"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "id",
+          "revision",
+          "sources",
+          "requirements",
+          "limitations",
+          "program_id",
+          "program_name",
+          "audit_program_names",
+          "requirement_term"
+        ],
+        "title": "ProgramRulePack"
+      },
+      "ProgramSelection": {
+        "properties": {
+          "name": {
+            "type": "string",
+            "title": "Name"
+          },
+          "requirement_term": {
+            "type": "string",
+            "title": "Requirement Term"
+          },
+          "pack_id": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Pack Id"
+          },
+          "state": {
+            "type": "string",
+            "enum": [
+              "selected",
+              "unsupported"
+            ],
+            "title": "State"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "name",
+          "requirement_term",
+          "state"
+        ],
+        "title": "ProgramSelection"
+      },
+      "RecommendationRequest": {
+        "properties": {
+          "reviewed": {
+            "$ref": "#/components/schemas/ReviewedAudit"
+          },
+          "snapshot_id": {
+            "type": "string",
+            "title": "Snapshot Id"
+          },
+          "term_id": {
+            "type": "string",
+            "title": "Term Id"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "reviewed",
+          "snapshot_id",
+          "term_id"
+        ],
+        "title": "RecommendationRequest"
+      },
+      "RecommendationResult": {
+        "properties": {
+          "audit_revision": {
+            "type": "string",
+            "title": "Audit Revision"
+          },
+          "snapshot_id": {
+            "type": "string",
+            "title": "Snapshot Id"
+          },
+          "snapshot_digest": {
+            "type": "string",
+            "title": "Snapshot Digest"
+          },
+          "term_id": {
+            "type": "string",
+            "title": "Term Id"
+          },
+          "classification": {
+            "type": "string",
+            "enum": [
+              "fictional",
+              "public"
+            ],
+            "title": "Classification"
+          },
+          "notice": {
+            "type": "string",
+            "title": "Notice"
+          },
+          "sources": {
+            "items": {
+              "$ref": "#/components/schemas/SourceSnapshot"
+            },
+            "type": "array",
+            "title": "Sources"
+          },
+          "resolution": {
+            "$ref": "#/components/schemas/CurriculumResolution"
+          },
+          "suggestions": {
+            "items": {
+              "$ref": "#/components/schemas/CourseSuggestion"
+            },
+            "type": "array",
+            "title": "Suggestions"
+          },
+          "manual_requirements": {
+            "items": {
+              "$ref": "#/components/schemas/ManualRequirement"
+            },
+            "type": "array",
+            "title": "Manual Requirements"
+          },
+          "excluded_courses": {
+            "items": {
+              "$ref": "#/components/schemas/ExcludedCourse"
+            },
+            "type": "array",
+            "title": "Excluded Courses"
+          },
+          "counting_notice": {
+            "type": "string",
+            "title": "Counting Notice"
+          },
+          "warnings": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "title": "Warnings"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "audit_revision",
+          "snapshot_id",
+          "snapshot_digest",
+          "term_id",
+          "classification",
+          "notice",
+          "sources",
+          "resolution",
+          "suggestions",
+          "manual_requirements",
+          "excluded_courses",
+          "counting_notice",
+          "warnings"
+        ],
+        "title": "RecommendationResult"
+      },
+      "RequirementAmount": {
+        "properties": {
+          "unit": {
+            "type": "string",
+            "enum": [
+              "courses",
+              "credits",
+              "gpa"
+            ],
+            "title": "Unit"
+          },
+          "required": {
+            "anyOf": [
+              {
+                "type": "number",
+                "minimum": 0.0
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Required"
+          },
+          "taken": {
+            "anyOf": [
+              {
+                "type": "number",
+                "minimum": 0.0
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Taken"
+          },
+          "needed": {
+            "anyOf": [
+              {
+                "type": "number",
+                "minimum": 0.0
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Needed"
+          },
+          "in_progress": {
+            "anyOf": [
+              {
+                "type": "number",
+                "minimum": 0.0
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "In Progress"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "unit"
+        ],
+        "title": "RequirementAmount"
+      },
+      "RequirementDefinition": {
+        "properties": {
+          "id": {
+            "type": "string",
+            "title": "Id"
+          },
+          "label": {
+            "type": "string",
+            "title": "Label"
+          },
+          "group": {
+            "type": "string",
+            "title": "Group"
+          },
+          "kind": {
+            "type": "string",
+            "enum": [
+              "course",
+              "attribute",
+              "any_of",
+              "all_of",
+              "policy",
+              "non_course"
+            ],
+            "title": "Kind"
+          },
+          "audit_labels": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "minItems": 1,
+            "title": "Audit Labels"
+          },
+          "course_ids": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "title": "Course Ids"
+          },
+          "attribute_ids": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "title": "Attribute Ids"
+          },
+          "child_ids": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "title": "Child Ids"
+          },
+          "minimum_courses": {
+            "anyOf": [
+              {
+                "type": "integer",
+                "minimum": 0.0
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Minimum Courses"
+          },
+          "minimum_credits": {
+            "anyOf": [
+              {
+                "type": "number",
+                "minimum": 0.0
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Minimum Credits"
+          },
+          "minimum_grade": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Minimum Grade"
+          },
+          "source_ids": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "minItems": 1,
+            "title": "Source Ids"
+          },
+          "notes": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "title": "Notes"
+          },
+          "support": {
+            "type": "string",
+            "enum": [
+              "candidate_matching",
+              "manual"
+            ],
+            "title": "Support",
+            "default": "manual"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "id",
+          "label",
+          "group",
+          "kind",
+          "audit_labels",
+          "source_ids"
+        ],
+        "title": "RequirementDefinition"
+      },
+      "RequirementMatch": {
+        "properties": {
+          "requirement_id": {
+            "type": "string",
+            "title": "Requirement Id"
+          },
+          "label": {
+            "type": "string",
+            "title": "Label"
+          },
+          "pack_id": {
+            "type": "string",
+            "title": "Pack Id"
+          },
+          "rule_id": {
+            "type": "string",
+            "title": "Rule Id"
+          },
+          "match_type": {
+            "type": "string",
+            "enum": [
+              "direct_course",
+              "attribute"
+            ],
+            "title": "Match Type"
+          },
+          "explanation": {
+            "type": "string",
+            "title": "Explanation"
+          },
+          "qualifying_bundle_ids": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "title": "Qualifying Bundle Ids"
+          },
+          "section_options": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "title": "Section Options"
+          },
+          "audit_evidence": {
+            "items": {
+              "$ref": "#/components/schemas/Evidence"
+            },
+            "type": "array",
+            "title": "Audit Evidence"
+          },
+          "sources": {
+            "items": {
+              "$ref": "#/components/schemas/RuleSource"
+            },
+            "type": "array",
+            "title": "Sources"
+          },
+          "notes": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "title": "Notes"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "requirement_id",
+          "label",
+          "pack_id",
+          "rule_id",
+          "match_type",
+          "explanation",
+          "qualifying_bundle_ids",
+          "section_options",
+          "audit_evidence",
+          "sources",
+          "notes"
+        ],
+        "title": "RequirementMatch"
+      },
+      "ReviewChange": {
+        "properties": {
+          "field": {
+            "type": "string",
+            "title": "Field"
+          },
+          "before": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Before"
+          },
+          "after": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "After"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "field",
+          "before",
+          "after"
+        ],
+        "title": "ReviewChange"
+      },
+      "ReviewRequest": {
+        "properties": {
+          "original": {
+            "$ref": "#/components/schemas/AuditDraft"
+          },
+          "edited": {
+            "$ref": "#/components/schemas/AuditDraft"
+          },
+          "acknowledged_issue_ids": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "title": "Acknowledged Issue Ids"
+          },
+          "confirmed": {
+            "type": "boolean",
+            "title": "Confirmed",
+            "default": false
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "original",
+          "edited"
+        ],
+        "title": "ReviewRequest"
+      },
+      "ReviewedAudit": {
+        "properties": {
+          "review_state": {
+            "type": "string",
+            "const": "confirmed",
+            "title": "Review State",
+            "default": "confirmed"
+          },
+          "revision": {
+            "type": "string",
+            "title": "Revision"
+          },
+          "audit": {
+            "$ref": "#/components/schemas/AuditDraft"
+          },
+          "changes": {
+            "items": {
+              "$ref": "#/components/schemas/ReviewChange"
+            },
+            "type": "array",
+            "title": "Changes"
+          },
+          "acknowledged_issue_ids": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "title": "Acknowledged Issue Ids"
+          },
+          "unresolved_issues": {
+            "items": {
+              "$ref": "#/components/schemas/Issue"
+            },
+            "type": "array",
+            "title": "Unresolved Issues"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "revision",
+          "audit",
+          "changes",
+          "acknowledged_issue_ids",
+          "unresolved_issues"
+        ],
+        "title": "ReviewedAudit"
+      },
+      "RuleSource": {
+        "properties": {
+          "id": {
+            "type": "string",
+            "title": "Id"
+          },
+          "url": {
+            "type": "string",
+            "maxLength": 2083,
+            "minLength": 1,
+            "format": "uri",
+            "title": "Url"
+          },
+          "edition": {
+            "type": "string",
+            "title": "Edition"
+          },
+          "locator": {
+            "type": "string",
+            "title": "Locator"
+          },
+          "verified_on": {
+            "type": "string",
+            "format": "date",
+            "title": "Verified On"
+          },
+          "content_sha256": {
+            "type": "string",
+            "pattern": "^[a-f0-9]{64}$",
+            "title": "Content Sha256"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "id",
+          "url",
+          "edition",
+          "locator",
+          "verified_on",
+          "content_sha256"
+        ],
+        "title": "RuleSource"
+      },
+      "ScheduleDiagnostic": {
+        "properties": {
+          "code": {
+            "type": "string",
+            "title": "Code"
+          },
+          "message": {
+            "type": "string",
+            "title": "Message"
+          },
+          "course_ids": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "title": "Course Ids"
+          },
+          "suggestions": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "title": "Suggestions"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "code",
+          "message"
+        ],
+        "title": "ScheduleDiagnostic"
+      },
+      "ScheduleExportRequest": {
+        "properties": {
+          "schedule_request": {
+            "$ref": "#/components/schemas/ScheduleRequest"
+          },
+          "schedule_id": {
+            "type": "string",
+            "maxLength": 128,
+            "minLength": 1,
+            "title": "Schedule Id"
+          },
+          "fallback_start": {
+            "anyOf": [
+              {
+                "type": "string",
+                "format": "date"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Fallback Start"
+          },
+          "fallback_end": {
+            "anyOf": [
+              {
+                "type": "string",
+                "format": "date"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Fallback End"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "schedule_request",
+          "schedule_id"
+        ],
+        "title": "ScheduleExportRequest"
+      },
+      "SchedulePreferences": {
+        "properties": {
+          "minimum_credits": {
+            "type": "number",
+            "maximum": 30.0,
+            "minimum": 0.0,
+            "title": "Minimum Credits",
+            "default": 3
+          },
+          "maximum_credits": {
+            "type": "number",
+            "maximum": 30.0,
+            "minimum": 0.0,
+            "title": "Maximum Credits",
+            "default": 18
+          },
+          "target_credits": {
+            "type": "number",
+            "maximum": 30.0,
+            "minimum": 0.0,
+            "title": "Target Credits",
+            "default": 12
+          },
+          "earliest_start": {
+            "type": "integer",
+            "exclusiveMaximum": 1440.0,
+            "minimum": 0.0,
+            "title": "Earliest Start",
+            "default": 480
+          },
+          "latest_end": {
+            "type": "integer",
+            "maximum": 1440.0,
+            "exclusiveMinimum": 0.0,
+            "title": "Latest End",
+            "default": 1260
+          },
+          "avoided_days": {
+            "items": {
+              "type": "integer"
+            },
+            "type": "array",
+            "title": "Avoided Days"
+          },
+          "preferred_time": {
+            "type": "string",
+            "enum": [
+              "none",
+              "morning",
+              "afternoon"
+            ],
+            "title": "Preferred Time",
+            "default": "none"
+          },
+          "compact_days": {
+            "type": "boolean",
+            "title": "Compact Days",
+            "default": false
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "title": "SchedulePreferences"
+      },
+      "ScheduleRequest": {
+        "properties": {
+          "reviewed": {
+            "$ref": "#/components/schemas/ReviewedAudit"
+          },
+          "snapshot_id": {
+            "type": "string",
+            "title": "Snapshot Id"
+          },
+          "term_id": {
+            "type": "string",
+            "title": "Term Id"
+          },
+          "selections": {
+            "items": {
+              "$ref": "#/components/schemas/SchedulingSelection"
+            },
+            "type": "array",
+            "maxItems": 12,
+            "minItems": 1,
+            "title": "Selections"
+          },
+          "preferences": {
+            "$ref": "#/components/schemas/SchedulePreferences"
+          },
+          "rule_revisions": {
+            "anyOf": [
+              {
+                "additionalProperties": {
+                  "type": "string"
+                },
+                "type": "object"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Rule Revisions"
+          },
+          "expected_snapshot_digest": {
+            "anyOf": [
+              {
+                "type": "string",
+                "pattern": "^[a-f0-9]{64}$"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Expected Snapshot Digest"
+          },
+          "result_limit": {
+            "type": "integer",
+            "maximum": 20.0,
+            "minimum": 1.0,
+            "title": "Result Limit",
+            "default": 10
+          },
+          "node_budget": {
+            "type": "integer",
+            "maximum": 200000.0,
+            "minimum": 1.0,
+            "title": "Node Budget",
+            "default": 100000
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "reviewed",
+          "snapshot_id",
+          "term_id",
+          "selections"
+        ],
+        "title": "ScheduleRequest"
+      },
+      "ScheduleResult": {
+        "properties": {
+          "audit_revision": {
+            "type": "string",
+            "title": "Audit Revision"
+          },
+          "snapshot_id": {
+            "type": "string",
+            "title": "Snapshot Id"
+          },
+          "snapshot_digest": {
+            "type": "string",
+            "title": "Snapshot Digest"
+          },
+          "term_id": {
+            "type": "string",
+            "title": "Term Id"
+          },
+          "timezone": {
+            "type": "string",
+            "title": "Timezone"
+          },
+          "classification": {
+            "type": "string",
+            "enum": [
+              "fictional",
+              "public"
+            ],
+            "title": "Classification"
+          },
+          "notice": {
+            "type": "string",
+            "title": "Notice"
+          },
+          "sources": {
+            "items": {
+              "$ref": "#/components/schemas/SourceSnapshot"
+            },
+            "type": "array",
+            "title": "Sources"
+          },
+          "rule_revisions": {
+            "additionalProperties": {
+              "type": "string"
+            },
+            "type": "object",
+            "title": "Rule Revisions"
+          },
+          "schedules": {
+            "items": {
+              "$ref": "#/components/schemas/CandidateSchedule"
+            },
+            "type": "array",
+            "title": "Schedules"
+          },
+          "search_complete": {
+            "type": "boolean",
+            "title": "Search Complete"
+          },
+          "nodes_visited": {
+            "type": "integer",
+            "title": "Nodes Visited"
+          },
+          "feasible_schedules_found": {
+            "type": "integer",
+            "title": "Feasible Schedules Found"
+          },
+          "filtered_courses": {
+            "items": {
+              "$ref": "#/components/schemas/FilteredCourse"
+            },
+            "type": "array",
+            "title": "Filtered Courses"
+          },
+          "diagnostics": {
+            "items": {
+              "$ref": "#/components/schemas/ScheduleDiagnostic"
+            },
+            "type": "array",
+            "title": "Diagnostics"
+          },
+          "warnings": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "title": "Warnings"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "audit_revision",
+          "snapshot_id",
+          "snapshot_digest",
+          "term_id",
+          "timezone",
+          "classification",
+          "notice",
+          "sources",
+          "rule_revisions",
+          "schedules",
+          "search_complete",
+          "nodes_visited",
+          "feasible_schedules_found",
+          "filtered_courses",
+          "diagnostics",
+          "warnings"
+        ],
+        "title": "ScheduleResult"
+      },
+      "ScheduledCourse": {
+        "properties": {
+          "course_id": {
+            "type": "string",
+            "title": "Course Id"
+          },
+          "title": {
+            "type": "string",
+            "title": "Title"
+          },
+          "bundle_id": {
+            "type": "string",
+            "title": "Bundle Id"
+          },
+          "credits": {
+            "type": "number",
+            "title": "Credits"
+          },
+          "sections": {
+            "items": {
+              "$ref": "#/components/schemas/Section"
+            },
+            "type": "array",
+            "title": "Sections"
+          },
+          "source": {
+            "type": "string",
+            "enum": [
+              "suggestion",
+              "manual"
+            ],
+            "title": "Source"
+          },
+          "possible_requirement_ids": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "title": "Possible Requirement Ids"
+          },
+          "possible_requirement_labels": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "title": "Possible Requirement Labels"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "course_id",
+          "title",
+          "bundle_id",
+          "credits",
+          "sections",
+          "source",
+          "possible_requirement_ids",
+          "possible_requirement_labels"
+        ],
+        "title": "ScheduledCourse"
+      },
+      "SchedulingSelection": {
+        "properties": {
+          "course_id": {
+            "type": "string",
+            "title": "Course Id"
+          },
+          "required": {
+            "type": "boolean",
+            "title": "Required",
+            "default": false
+          },
+          "source": {
+            "type": "string",
+            "enum": [
+              "suggestion",
+              "manual"
+            ],
+            "title": "Source",
+            "default": "manual"
+          },
+          "requirement_ids": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "title": "Requirement Ids"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "course_id"
+        ],
+        "title": "SchedulingSelection"
+      },
+      "Section": {
+        "properties": {
+          "id": {
+            "type": "string",
+            "title": "Id"
+          },
+          "term_id": {
+            "type": "string",
+            "title": "Term Id"
+          },
+          "course_id": {
+            "type": "string",
+            "title": "Course Id"
+          },
+          "number": {
+            "type": "string",
+            "title": "Number"
+          },
+          "source_snapshot_id": {
+            "type": "string",
+            "title": "Source Snapshot Id"
+          },
+          "meetings": {
+            "items": {
+              "$ref": "#/components/schemas/Meeting"
+            },
+            "type": "array",
+            "title": "Meetings"
+          },
+          "required_component_ids": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "title": "Required Component Ids"
+          },
+          "component": {
+            "type": "string",
+            "enum": [
+              "lecture",
+              "lab",
+              "recitation",
+              "seminar",
+              "other"
+            ],
+            "title": "Component",
+            "default": "lecture"
+          },
+          "credit_value": {
+            "anyOf": [
+              {
+                "type": "number",
+                "minimum": 0.0
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Credit Value"
+          },
+          "instructor": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Instructor"
+          },
+          "location": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Location"
+          },
+          "modality": {
+            "type": "string",
+            "enum": [
+              "in_person",
+              "online_synchronous",
+              "asynchronous",
+              "hybrid",
+              "unknown"
+            ],
+            "title": "Modality",
+            "default": "unknown"
+          },
+          "linkage_status": {
+            "type": "string",
+            "enum": [
+              "verified",
+              "not_required",
+              "unknown"
+            ],
+            "title": "Linkage Status",
+            "default": "unknown"
+          },
+          "crosslist_group_id": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Crosslist Group Id"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "id",
+          "term_id",
+          "course_id",
+          "number",
+          "source_snapshot_id",
+          "meetings"
+        ],
+        "title": "Section"
+      },
+      "SectionBundle": {
+        "properties": {
+          "id": {
+            "type": "string",
+            "title": "Id"
+          },
+          "term_id": {
+            "type": "string",
+            "title": "Term Id"
+          },
+          "course_id": {
+            "type": "string",
+            "title": "Course Id"
+          },
+          "section_ids": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "minItems": 1,
+            "title": "Section Ids"
+          },
+          "credits": {
+            "type": "number",
+            "minimum": 0.0,
+            "title": "Credits"
+          },
+          "source_snapshot_id": {
+            "type": "string",
+            "title": "Source Snapshot Id"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "id",
+          "term_id",
+          "course_id",
+          "section_ids",
+          "credits",
+          "source_snapshot_id"
+        ],
+        "title": "SectionBundle"
+      },
+      "SectionOptions": {
+        "properties": {
+          "snapshot_id": {
+            "type": "string",
+            "title": "Snapshot Id"
+          },
+          "classification": {
+            "type": "string",
+            "enum": [
+              "fictional",
+              "public"
+            ],
+            "title": "Classification"
+          },
+          "notice": {
+            "type": "string",
+            "title": "Notice"
+          },
+          "course_id": {
+            "type": "string",
+            "title": "Course Id"
+          },
+          "term_id": {
+            "type": "string",
+            "title": "Term Id"
+          },
+          "sections": {
+            "items": {
+              "$ref": "#/components/schemas/Section"
+            },
+            "type": "array",
+            "title": "Sections"
+          },
+          "bundles": {
+            "items": {
+              "$ref": "#/components/schemas/SectionBundle"
+            },
+            "type": "array",
+            "title": "Bundles"
+          },
+          "sources": {
+            "items": {
+              "$ref": "#/components/schemas/SourceSnapshot"
+            },
+            "type": "array",
+            "title": "Sources"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "snapshot_id",
+          "classification",
+          "notice",
+          "course_id",
+          "term_id",
+          "sections",
+          "bundles",
+          "sources"
+        ],
+        "title": "SectionOptions"
+      },
+      "SelectionEvidence": {
+        "properties": {
+          "kind": {
+            "type": "string",
+            "enum": [
+              "entry_term",
+              "starting_year",
+              "catalog_label",
+              "requirement_signature",
+              "program_term"
+            ],
+            "title": "Kind"
+          },
+          "value": {
+            "type": "string",
+            "title": "Value"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "kind",
+          "value"
+        ],
+        "title": "SelectionEvidence"
+      },
+      "SourceSnapshot": {
+        "properties": {
+          "id": {
+            "type": "string",
+            "title": "Id"
+          },
+          "source_url": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Source Url"
+          },
+          "retrieved_at": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Retrieved At"
+          },
+          "classification": {
+            "type": "string",
+            "enum": [
+              "public",
+              "fictional"
+            ],
+            "title": "Classification"
+          },
+          "edition": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Edition"
+          },
+          "content_sha256": {
+            "anyOf": [
+              {
+                "type": "string",
+                "pattern": "^[a-f0-9]{64}$"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Content Sha256"
+          },
+          "adapter_version": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Adapter Version"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "id",
+          "classification"
+        ],
+        "title": "SourceSnapshot"
+      },
+      "Term": {
+        "properties": {
+          "id": {
+            "type": "string",
+            "title": "Id"
+          },
+          "name": {
+            "type": "string",
+            "title": "Name"
+          },
+          "catalog_edition": {
+            "type": "string",
+            "title": "Catalog Edition"
+          },
+          "timezone": {
+            "type": "string",
+            "const": "America/New_York",
+            "title": "Timezone",
+            "default": "America/New_York"
+          },
+          "start_date": {
+            "anyOf": [
+              {
+                "type": "string",
+                "format": "date"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Start Date"
+          },
+          "end_date": {
+            "anyOf": [
+              {
+                "type": "string",
+                "format": "date"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "End Date"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "id",
+          "name",
+          "catalog_edition"
+        ],
+        "title": "Term"
+      },
+      "ValidationError": {
+        "properties": {
+          "loc": {
+            "items": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "integer"
+                }
+              ]
+            },
+            "type": "array",
+            "title": "Location"
+          },
+          "msg": {
+            "type": "string",
+            "title": "Message"
+          },
+          "type": {
+            "type": "string",
+            "title": "Error Type"
+          },
+          "input": {
+            "title": "Input"
+          },
+          "ctx": {
+            "type": "object",
+            "title": "Context"
+          }
+        },
+        "type": "object",
+        "required": [
+          "loc",
+          "msg",
+          "type"
+        ],
+        "title": "ValidationError"
+      }
+    }
+  }
+}

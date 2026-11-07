@@ -1,0 +1,300 @@
+{
+  "id": "cs-bs-2025-fall",
+  "revision": "2026-11-07.1",
+  "program_id": "cs-bs",
+  "program_name": "Computer Science BS",
+  "audit_program_names": [
+    "Computer Science (BS) Major"
+  ],
+  "requirement_term": "2025 Fall",
+  "sources": [
+    {
+      "id": "unc-cs-bs-2025",
+      "url": "https://catalog.unc.edu/pdf/2025-26-ugrad.pdf",
+      "edition": "2025-2026",
+      "locator": "PDF p. 282 (1-based), Requirements and footnotes",
+      "verified_on": "2026-11-07",
+      "content_sha256": "39ede23abafb396efb6a4236cdc189d97af5464167747568b00ae450db1ccf31"
+    }
+  ],
+  "requirements": [
+    {
+      "id": "comp-210",
+      "label": "COMP 210",
+      "group": "core",
+      "kind": "course",
+      "audit_labels": [
+        "COMP 210",
+        "COMP 210 (C or Higher)"
+      ],
+      "source_ids": [
+        "unc-cs-bs-2025"
+      ],
+      "course_ids": [
+        "COMP 210"
+      ],
+      "minimum_courses": 1,
+      "minimum_grade": "C",
+      "support": "candidate_matching"
+    },
+    {
+      "id": "comp-211",
+      "label": "COMP 211",
+      "group": "core",
+      "kind": "course",
+      "audit_labels": [
+        "COMP 211",
+        "COMP 211 (C or Higher)"
+      ],
+      "source_ids": [
+        "unc-cs-bs-2025"
+      ],
+      "course_ids": [
+        "COMP 211"
+      ],
+      "minimum_courses": 1,
+      "minimum_grade": "C",
+      "support": "candidate_matching"
+    },
+    {
+      "id": "comp-301",
+      "label": "COMP 301",
+      "group": "core",
+      "kind": "course",
+      "audit_labels": [
+        "COMP 301",
+        "COMP 301 (C or Higher)"
+      ],
+      "source_ids": [
+        "unc-cs-bs-2025"
+      ],
+      "course_ids": [
+        "COMP 301"
+      ],
+      "minimum_courses": 1,
+      "minimum_grade": "C",
+      "support": "candidate_matching"
+    },
+    {
+      "id": "comp-311",
+      "label": "COMP 311",
+      "group": "core",
+      "kind": "course",
+      "audit_labels": [
+        "COMP 311",
+        "COMP 311 (C or Higher)"
+      ],
+      "source_ids": [
+        "unc-cs-bs-2025"
+      ],
+      "course_ids": [
+        "COMP 311"
+      ],
+      "minimum_courses": 1,
+      "minimum_grade": "C",
+      "support": "candidate_matching"
+    },
+    {
+      "id": "comp-455",
+      "label": "COMP 455",
+      "group": "core",
+      "kind": "course",
+      "audit_labels": [
+        "COMP 455",
+        "COMP 455 (C or Higher)"
+      ],
+      "source_ids": [
+        "unc-cs-bs-2025"
+      ],
+      "course_ids": [
+        "COMP 455"
+      ],
+      "minimum_courses": 1,
+      "minimum_grade": null,
+      "support": "candidate_matching"
+    },
+    {
+      "id": "comp-550",
+      "label": "COMP 550",
+      "group": "core",
+      "kind": "course",
+      "audit_labels": [
+        "COMP 550",
+        "COMP 550 (C or Higher)"
+      ],
+      "source_ids": [
+        "unc-cs-bs-2025"
+      ],
+      "course_ids": [
+        "COMP 550"
+      ],
+      "minimum_courses": 1,
+      "minimum_grade": null,
+      "support": "candidate_matching"
+    },
+    {
+      "id": "math-231",
+      "label": "MATH 231",
+      "group": "core",
+      "kind": "course",
+      "audit_labels": [
+        "MATH 231",
+        "MATH 231 (C or Higher)"
+      ],
+      "source_ids": [
+        "unc-cs-bs-2025"
+      ],
+      "course_ids": [
+        "MATH 231"
+      ],
+      "minimum_courses": 1,
+      "minimum_grade": "C",
+      "support": "candidate_matching"
+    },
+    {
+      "id": "math-232",
+      "label": "MATH 232",
+      "group": "core",
+      "kind": "course",
+      "audit_labels": [
+        "MATH 232",
+        "MATH 232 (C or Higher)"
+      ],
+      "source_ids": [
+        "unc-cs-bs-2025"
+      ],
+      "course_ids": [
+        "MATH 232"
+      ],
+      "minimum_courses": 1,
+      "minimum_grade": "C",
+      "support": "candidate_matching"
+    },
+    {
+      "id": "discrete",
+      "label": "COMP 283, MATH 381, or STOR 315 (C or Higher)",
+      "group": "additional",
+      "kind": "any_of",
+      "audit_labels": [
+        "COMP 283, MATH 381, or STOR 315 (C or Higher)"
+      ],
+      "source_ids": [
+        "unc-cs-bs-2025"
+      ],
+      "course_ids": [
+        "COMP 283",
+        "MATH 381",
+        "STOR 315"
+      ],
+      "minimum_courses": 1,
+      "minimum_grade": "C",
+      "support": "candidate_matching"
+    },
+    {
+      "id": "multivariable",
+      "label": "MATH 233 or STOR 235",
+      "group": "additional",
+      "kind": "any_of",
+      "audit_labels": [
+        "MATH 233 or STOR 235"
+      ],
+      "source_ids": [
+        "unc-cs-bs-2025"
+      ],
+      "course_ids": [
+        "MATH 233",
+        "STOR 235"
+      ],
+      "minimum_courses": 1,
+      "minimum_grade": "C",
+      "support": "candidate_matching"
+    },
+    {
+      "id": "linear",
+      "label": "MATH 347 or 577",
+      "group": "additional",
+      "kind": "any_of",
+      "audit_labels": [
+        "MATH 347 or 577"
+      ],
+      "source_ids": [
+        "unc-cs-bs-2025"
+      ],
+      "course_ids": [
+        "MATH 347",
+        "MATH 577"
+      ],
+      "minimum_courses": 1,
+      "minimum_grade": null,
+      "support": "candidate_matching"
+    },
+    {
+      "id": "probability",
+      "label": "STOR 435, STOR 535 or BIOS 650",
+      "group": "additional",
+      "kind": "any_of",
+      "audit_labels": [
+        "STOR 435, STOR 535 or BIOS 650"
+      ],
+      "source_ids": [
+        "unc-cs-bs-2025"
+      ],
+      "course_ids": [
+        "STOR 435",
+        "STOR 535",
+        "BIOS 650"
+      ],
+      "minimum_courses": 1,
+      "minimum_grade": null,
+      "support": "candidate_matching"
+    },
+    {
+      "id": "electives",
+      "label": "Additional COMP Courses",
+      "group": "policy",
+      "kind": "policy",
+      "audit_labels": [
+        "Additional COMP Courses"
+      ],
+      "source_ids": [
+        "unc-cs-bs-2025"
+      ],
+      "notes": [
+        "Verify elective exclusions, science course/lab combinations, minimum grades, residency, admission and GPA against the official source."
+      ]
+    },
+    {
+      "id": "science",
+      "label": "Science Courses",
+      "group": "policy",
+      "kind": "policy",
+      "audit_labels": [
+        "Science Courses"
+      ],
+      "source_ids": [
+        "unc-cs-bs-2025"
+      ],
+      "notes": [
+        "Verify elective exclusions, science course/lab combinations, minimum grades, residency, admission and GPA against the official source."
+      ]
+    },
+    {
+      "id": "major-policy",
+      "label": "University Requirements for Majors",
+      "group": "policy",
+      "kind": "policy",
+      "audit_labels": [
+        "University Requirements for Majors"
+      ],
+      "source_ids": [
+        "unc-cs-bs-2025"
+      ],
+      "notes": [
+        "Verify elective exclusions, science course/lab combinations, minimum grades, residency, admission and GPA against the official source."
+      ]
+    }
+  ],
+  "limitations": [
+    "Partial candidate mapping only; no admission, elective-pool, science-combination, grading or residency evaluation."
+  ]
+}

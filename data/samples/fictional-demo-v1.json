@@ -1,0 +1,980 @@
+{
+  "schema_version": "1",
+  "id": "fictional-demo-v1",
+  "classification": "fictional",
+  "description": "Fictional sample data, not official UNC offerings. All courses, sections and dates are invented.",
+  "created_at": "2026-11-07T12:00:00-05:00",
+  "sources": [
+    {
+      "id": "fictional-authoring-v1",
+      "source_url": null,
+      "retrieved_at": null,
+      "classification": "fictional",
+      "edition": "development-v1",
+      "content_sha256": null,
+      "adapter_version": "hand-authored-1"
+    }
+  ],
+  "courses": [
+    {
+      "id": "DEMO 101",
+      "title": "Fictional: Worlds and Stories",
+      "credits_min": 3.0,
+      "credits_max": 3.0,
+      "source_snapshot_id": "fictional-authoring-v1",
+      "prerequisite_text": null,
+      "edition": "2026-2027",
+      "description": "Invented solely for testing; not a UNC catalog course."
+    },
+    {
+      "id": "DEMO 102",
+      "title": "Fictional: Creative Studio",
+      "credits_min": 3.0,
+      "credits_max": 3.0,
+      "source_snapshot_id": "fictional-authoring-v1",
+      "prerequisite_text": null,
+      "edition": "2026-2027",
+      "description": "Invented solely for testing; not a UNC catalog course."
+    },
+    {
+      "id": "DEMO 103",
+      "title": "Fictional: Investigation and Evidence",
+      "credits_min": 4.0,
+      "credits_max": 4.0,
+      "source_snapshot_id": "fictional-authoring-v1",
+      "prerequisite_text": null,
+      "edition": "2026-2027",
+      "description": "Invented solely for testing; not a UNC catalog course."
+    },
+    {
+      "id": "DEMO 104",
+      "title": "Fictional: Investigation Lab",
+      "credits_min": 1.0,
+      "credits_max": 1.0,
+      "source_snapshot_id": "fictional-authoring-v1",
+      "prerequisite_text": null,
+      "edition": "2026-2027",
+      "description": "Invented solely for testing; not a UNC catalog course."
+    },
+    {
+      "id": "DEMO 105",
+      "title": "Fictional: Public Questions",
+      "credits_min": 3.0,
+      "credits_max": 3.0,
+      "source_snapshot_id": "fictional-authoring-v1",
+      "prerequisite_text": null,
+      "edition": "2026-2027",
+      "description": "Invented solely for testing; not a UNC catalog course."
+    },
+    {
+      "id": "DEMO 106",
+      "title": "Fictional: Quantitative Practice",
+      "credits_min": 3.0,
+      "credits_max": 3.0,
+      "source_snapshot_id": "fictional-authoring-v1",
+      "prerequisite_text": null,
+      "edition": "2026-2027",
+      "description": "Invented solely for testing; not a UNC catalog course."
+    },
+    {
+      "id": "DEMO 107",
+      "title": "Fictional: Language Workshop",
+      "credits_min": 3.0,
+      "credits_max": 3.0,
+      "source_snapshot_id": "fictional-authoring-v1",
+      "prerequisite_text": null,
+      "edition": "2026-2027",
+      "description": "Invented solely for testing; not a UNC catalog course."
+    },
+    {
+      "id": "DEMO 108",
+      "title": "Fictional: Research Studio",
+      "credits_min": 3.0,
+      "credits_max": 3.0,
+      "source_snapshot_id": "fictional-authoring-v1",
+      "prerequisite_text": null,
+      "edition": "2026-2027",
+      "description": "Invented solely for testing; not a UNC catalog course."
+    },
+    {
+      "id": "DEMO 109",
+      "title": "Fictional: Independent Project",
+      "credits_min": 1.0,
+      "credits_max": 3.0,
+      "source_snapshot_id": "fictional-authoring-v1",
+      "prerequisite_text": null,
+      "edition": "2026-2027",
+      "description": "Invented solely for testing; not a UNC catalog course."
+    },
+    {
+      "id": "DEMO 110",
+      "title": "Fictional: Inquiry Seminar",
+      "credits_min": 3.0,
+      "credits_max": 3.0,
+      "source_snapshot_id": "fictional-authoring-v1",
+      "prerequisite_text": null,
+      "edition": "2026-2027",
+      "description": "Invented solely for testing; not a UNC catalog course."
+    },
+    {
+      "id": "DEMO 101",
+      "title": "Fictional: Earlier Worlds and Stories",
+      "credits_min": 3.0,
+      "credits_max": 3.0,
+      "source_snapshot_id": "fictional-authoring-v1",
+      "prerequisite_text": null,
+      "edition": "2024-2025",
+      "description": null
+    }
+  ],
+  "designations": [
+    {
+      "course_id": "DEMO 101",
+      "edition": "2026-2027",
+      "attribute_id": "FC-PAST",
+      "source_snapshot_id": "fictional-authoring-v1",
+      "section_id": null,
+      "term_id": null
+    },
+    {
+      "course_id": "DEMO 102",
+      "edition": "2026-2027",
+      "attribute_id": "FC-CREATE",
+      "source_snapshot_id": "fictional-authoring-v1",
+      "section_id": null,
+      "term_id": null
+    },
+    {
+      "course_id": "DEMO 103",
+      "edition": "2026-2027",
+      "attribute_id": "FC-NATSCI",
+      "source_snapshot_id": "fictional-authoring-v1",
+      "section_id": null,
+      "term_id": null
+    },
+    {
+      "course_id": "DEMO 104",
+      "edition": "2026-2027",
+      "attribute_id": "FC-LAB",
+      "source_snapshot_id": "fictional-authoring-v1",
+      "section_id": null,
+      "term_id": null
+    },
+    {
+      "course_id": "DEMO 105",
+      "edition": "2026-2027",
+      "attribute_id": "FC-VALUES",
+      "source_snapshot_id": "fictional-authoring-v1",
+      "section_id": null,
+      "term_id": null
+    },
+    {
+      "course_id": "DEMO 106",
+      "edition": "2026-2027",
+      "attribute_id": "FC-QUANT",
+      "source_snapshot_id": "fictional-authoring-v1",
+      "section_id": null,
+      "term_id": null
+    },
+    {
+      "course_id": "DEMO 107",
+      "edition": "2026-2027",
+      "attribute_id": "FC-GLOBAL",
+      "source_snapshot_id": "fictional-authoring-v1",
+      "section_id": null,
+      "term_id": null
+    },
+    {
+      "course_id": "DEMO 108",
+      "edition": "2026-2027",
+      "attribute_id": "RESEARCH",
+      "source_snapshot_id": "fictional-authoring-v1",
+      "section_id": null,
+      "term_id": null
+    },
+    {
+      "course_id": "DEMO 109",
+      "edition": "2026-2027",
+      "attribute_id": "FC-KNOWING",
+      "source_snapshot_id": "fictional-authoring-v1",
+      "section_id": null,
+      "term_id": null
+    },
+    {
+      "course_id": "DEMO 110",
+      "edition": "2026-2027",
+      "attribute_id": "FY-SEMINAR",
+      "source_snapshot_id": "fictional-authoring-v1",
+      "section_id": null,
+      "term_id": null
+    },
+    {
+      "course_id": "DEMO 101",
+      "edition": "2024-2025",
+      "attribute_id": "FC-AESTH",
+      "source_snapshot_id": "fictional-authoring-v1",
+      "section_id": null,
+      "term_id": null
+    },
+    {
+      "course_id": "DEMO 102",
+      "edition": "2026-2027",
+      "attribute_id": "RESEARCH",
+      "source_snapshot_id": "fictional-authoring-v1",
+      "section_id": "demo-102-b",
+      "term_id": "sample-spring-2027"
+    }
+  ],
+  "terms": [
+    {
+      "id": "sample-spring-2027",
+      "name": "Fictional Spring 2027",
+      "catalog_edition": "2026-2027",
+      "timezone": "America/New_York",
+      "start_date": "2027-01-11",
+      "end_date": "2027-05-07"
+    }
+  ],
+  "sections": [
+    {
+      "id": "demo-101-a",
+      "term_id": "sample-spring-2027",
+      "course_id": "DEMO 101",
+      "number": "A",
+      "source_snapshot_id": "fictional-authoring-v1",
+      "meetings": [
+        {
+          "kind": "timed",
+          "weekday": 0,
+          "start_minute": 540,
+          "end_minute": 590,
+          "start_date": null,
+          "end_date": null
+        }
+      ],
+      "required_component_ids": [],
+      "component": "lecture",
+      "credit_value": 3.0,
+      "instructor": "Fictional Instructor",
+      "location": null,
+      "modality": "in_person",
+      "linkage_status": "not_required"
+    },
+    {
+      "id": "demo-101-b",
+      "term_id": "sample-spring-2027",
+      "course_id": "DEMO 101",
+      "number": "B",
+      "source_snapshot_id": "fictional-authoring-v1",
+      "meetings": [
+        {
+          "kind": "timed",
+          "weekday": 0,
+          "start_minute": 720,
+          "end_minute": 770,
+          "start_date": null,
+          "end_date": null
+        }
+      ],
+      "required_component_ids": [],
+      "component": "lecture",
+      "credit_value": 3.0,
+      "instructor": "Fictional Instructor",
+      "location": null,
+      "modality": "in_person",
+      "linkage_status": "not_required"
+    },
+    {
+      "id": "demo-102-a",
+      "term_id": "sample-spring-2027",
+      "course_id": "DEMO 102",
+      "number": "A",
+      "source_snapshot_id": "fictional-authoring-v1",
+      "meetings": [
+        {
+          "kind": "timed",
+          "weekday": 0,
+          "start_minute": 550,
+          "end_minute": 600,
+          "start_date": null,
+          "end_date": null
+        }
+      ],
+      "required_component_ids": [],
+      "component": "lecture",
+      "credit_value": 3.0,
+      "instructor": "Fictional Instructor",
+      "location": null,
+      "modality": "in_person",
+      "linkage_status": "not_required"
+    },
+    {
+      "id": "demo-102-b",
+      "term_id": "sample-spring-2027",
+      "course_id": "DEMO 102",
+      "number": "B",
+      "source_snapshot_id": "fictional-authoring-v1",
+      "meetings": [
+        {
+          "kind": "timed",
+          "weekday": 1,
+          "start_minute": 780,
+          "end_minute": 830,
+          "start_date": null,
+          "end_date": null
+        }
+      ],
+      "required_component_ids": [],
+      "component": "lecture",
+      "credit_value": 3.0,
+      "instructor": "Fictional Instructor",
+      "location": null,
+      "modality": "in_person",
+      "linkage_status": "not_required"
+    },
+    {
+      "id": "demo-103-a",
+      "term_id": "sample-spring-2027",
+      "course_id": "DEMO 103",
+      "number": "A",
+      "source_snapshot_id": "fictional-authoring-v1",
+      "meetings": [
+        {
+          "kind": "timed",
+          "weekday": 2,
+          "start_minute": 660,
+          "end_minute": 710,
+          "start_date": null,
+          "end_date": null
+        }
+      ],
+      "required_component_ids": [
+        "demo-103-a-lab"
+      ],
+      "component": "lecture",
+      "credit_value": 4.0,
+      "instructor": "Fictional Instructor",
+      "location": null,
+      "modality": "in_person",
+      "linkage_status": "verified"
+    },
+    {
+      "id": "demo-103-a-lab",
+      "term_id": "sample-spring-2027",
+      "course_id": "DEMO 103",
+      "number": "AL",
+      "source_snapshot_id": "fictional-authoring-v1",
+      "meetings": [
+        {
+          "kind": "timed",
+          "weekday": 3,
+          "start_minute": 840,
+          "end_minute": 920,
+          "start_date": null,
+          "end_date": null
+        }
+      ],
+      "required_component_ids": [
+        "demo-103-a"
+      ],
+      "component": "lab",
+      "credit_value": 0.0,
+      "instructor": null,
+      "location": null,
+      "modality": "in_person",
+      "linkage_status": "verified"
+    },
+    {
+      "id": "demo-103-b",
+      "term_id": "sample-spring-2027",
+      "course_id": "DEMO 103",
+      "number": "B",
+      "source_snapshot_id": "fictional-authoring-v1",
+      "meetings": [
+        {
+          "kind": "timed",
+          "weekday": 2,
+          "start_minute": 840,
+          "end_minute": 890,
+          "start_date": null,
+          "end_date": null
+        }
+      ],
+      "required_component_ids": [
+        "demo-103-b-lab"
+      ],
+      "component": "lecture",
+      "credit_value": 4.0,
+      "instructor": "Fictional Instructor",
+      "location": null,
+      "modality": "in_person",
+      "linkage_status": "verified"
+    },
+    {
+      "id": "demo-103-b-lab",
+      "term_id": "sample-spring-2027",
+      "course_id": "DEMO 103",
+      "number": "BL",
+      "source_snapshot_id": "fictional-authoring-v1",
+      "meetings": [
+        {
+          "kind": "timed",
+          "weekday": 3,
+          "start_minute": 930,
+          "end_minute": 1010,
+          "start_date": null,
+          "end_date": null
+        }
+      ],
+      "required_component_ids": [
+        "demo-103-b"
+      ],
+      "component": "lab",
+      "credit_value": 0.0,
+      "instructor": null,
+      "location": null,
+      "modality": "in_person",
+      "linkage_status": "verified"
+    },
+    {
+      "id": "demo-104-a",
+      "term_id": "sample-spring-2027",
+      "course_id": "DEMO 104",
+      "number": "A",
+      "source_snapshot_id": "fictional-authoring-v1",
+      "meetings": [
+        {
+          "kind": "timed",
+          "weekday": 3,
+          "start_minute": 720,
+          "end_minute": 770,
+          "start_date": null,
+          "end_date": null
+        }
+      ],
+      "required_component_ids": [],
+      "component": "lab",
+      "credit_value": 1.0,
+      "instructor": "Fictional Instructor",
+      "location": null,
+      "modality": "in_person",
+      "linkage_status": "not_required"
+    },
+    {
+      "id": "demo-104-b",
+      "term_id": "sample-spring-2027",
+      "course_id": "DEMO 104",
+      "number": "B",
+      "source_snapshot_id": "fictional-authoring-v1",
+      "meetings": [
+        {
+          "kind": "timed",
+          "weekday": 3,
+          "start_minute": 900,
+          "end_minute": 950,
+          "start_date": null,
+          "end_date": null
+        }
+      ],
+      "required_component_ids": [],
+      "component": "lab",
+      "credit_value": 1.0,
+      "instructor": "Fictional Instructor",
+      "location": null,
+      "modality": "in_person",
+      "linkage_status": "not_required"
+    },
+    {
+      "id": "demo-105-a",
+      "term_id": "sample-spring-2027",
+      "course_id": "DEMO 105",
+      "number": "A",
+      "source_snapshot_id": "fictional-authoring-v1",
+      "meetings": [
+        {
+          "kind": "timed",
+          "weekday": 4,
+          "start_minute": 540,
+          "end_minute": 590,
+          "start_date": "2027-01-11",
+          "end_date": "2027-03-05"
+        }
+      ],
+      "required_component_ids": [],
+      "component": "lecture",
+      "credit_value": 3.0,
+      "instructor": "Fictional Instructor",
+      "location": null,
+      "modality": "in_person",
+      "linkage_status": "not_required"
+    },
+    {
+      "id": "demo-105-b",
+      "term_id": "sample-spring-2027",
+      "course_id": "DEMO 105",
+      "number": "B",
+      "source_snapshot_id": "fictional-authoring-v1",
+      "meetings": [
+        {
+          "kind": "timed",
+          "weekday": 4,
+          "start_minute": 720,
+          "end_minute": 770,
+          "start_date": null,
+          "end_date": null
+        }
+      ],
+      "required_component_ids": [],
+      "component": "lecture",
+      "credit_value": 3.0,
+      "instructor": "Fictional Instructor",
+      "location": null,
+      "modality": "in_person",
+      "linkage_status": "not_required"
+    },
+    {
+      "id": "demo-106-a",
+      "term_id": "sample-spring-2027",
+      "course_id": "DEMO 106",
+      "number": "A",
+      "source_snapshot_id": "fictional-authoring-v1",
+      "meetings": [
+        {
+          "kind": "timed",
+          "weekday": 0,
+          "start_minute": 600,
+          "end_minute": 650,
+          "start_date": null,
+          "end_date": null
+        }
+      ],
+      "required_component_ids": [],
+      "component": "lecture",
+      "credit_value": 3.0,
+      "instructor": "Fictional Instructor",
+      "location": null,
+      "modality": "in_person",
+      "linkage_status": "not_required"
+    },
+    {
+      "id": "demo-106-b",
+      "term_id": "sample-spring-2027",
+      "course_id": "DEMO 106",
+      "number": "B",
+      "source_snapshot_id": "fictional-authoring-v1",
+      "meetings": [
+        {
+          "kind": "timed",
+          "weekday": 0,
+          "start_minute": 780,
+          "end_minute": 830,
+          "start_date": null,
+          "end_date": null
+        }
+      ],
+      "required_component_ids": [],
+      "component": "lecture",
+      "credit_value": 3.0,
+      "instructor": "Fictional Instructor",
+      "location": null,
+      "modality": "in_person",
+      "linkage_status": "not_required"
+    },
+    {
+      "id": "demo-107-a",
+      "term_id": "sample-spring-2027",
+      "course_id": "DEMO 107",
+      "number": "A",
+      "source_snapshot_id": "fictional-authoring-v1",
+      "meetings": [
+        {
+          "kind": "timed",
+          "weekday": 1,
+          "start_minute": 660,
+          "end_minute": 710,
+          "start_date": null,
+          "end_date": null
+        }
+      ],
+      "required_component_ids": [],
+      "component": "lecture",
+      "credit_value": 3.0,
+      "instructor": "Fictional Instructor",
+      "location": null,
+      "modality": "in_person",
+      "linkage_status": "not_required"
+    },
+    {
+      "id": "demo-107-b",
+      "term_id": "sample-spring-2027",
+      "course_id": "DEMO 107",
+      "number": "B",
+      "source_snapshot_id": "fictional-authoring-v1",
+      "meetings": [
+        {
+          "kind": "timed",
+          "weekday": 2,
+          "start_minute": 1080,
+          "end_minute": 1150,
+          "start_date": null,
+          "end_date": null
+        }
+      ],
+      "required_component_ids": [],
+      "component": "lecture",
+      "credit_value": 3.0,
+      "instructor": "Fictional Instructor",
+      "location": null,
+      "modality": "in_person",
+      "linkage_status": "not_required"
+    },
+    {
+      "id": "demo-108-a",
+      "term_id": "sample-spring-2027",
+      "course_id": "DEMO 108",
+      "number": "A",
+      "source_snapshot_id": "fictional-authoring-v1",
+      "meetings": [
+        {
+          "kind": "timed",
+          "weekday": 2,
+          "start_minute": 720,
+          "end_minute": 770,
+          "start_date": null,
+          "end_date": null
+        }
+      ],
+      "required_component_ids": [],
+      "component": "lecture",
+      "credit_value": 3.0,
+      "instructor": "Fictional Instructor",
+      "location": null,
+      "modality": "in_person",
+      "linkage_status": "not_required"
+    },
+    {
+      "id": "demo-108-b",
+      "term_id": "sample-spring-2027",
+      "course_id": "DEMO 108",
+      "number": "B",
+      "source_snapshot_id": "fictional-authoring-v1",
+      "meetings": [
+        {
+          "kind": "asynchronous",
+          "weekday": null,
+          "start_minute": null,
+          "end_minute": null,
+          "start_date": null,
+          "end_date": null
+        }
+      ],
+      "required_component_ids": [],
+      "component": "lecture",
+      "credit_value": 3.0,
+      "instructor": "Fictional Instructor",
+      "location": null,
+      "modality": "asynchronous",
+      "linkage_status": "not_required"
+    },
+    {
+      "id": "demo-109-a",
+      "term_id": "sample-spring-2027",
+      "course_id": "DEMO 109",
+      "number": "A",
+      "source_snapshot_id": "fictional-authoring-v1",
+      "meetings": [
+        {
+          "kind": "timed",
+          "weekday": 3,
+          "start_minute": 540,
+          "end_minute": 590,
+          "start_date": null,
+          "end_date": null
+        }
+      ],
+      "required_component_ids": [],
+      "component": "lecture",
+      "credit_value": 2.0,
+      "instructor": "Fictional Instructor",
+      "location": null,
+      "modality": "in_person",
+      "linkage_status": "not_required"
+    },
+    {
+      "id": "demo-109-b",
+      "term_id": "sample-spring-2027",
+      "course_id": "DEMO 109",
+      "number": "B",
+      "source_snapshot_id": "fictional-authoring-v1",
+      "meetings": [
+        {
+          "kind": "timed",
+          "weekday": 3,
+          "start_minute": 720,
+          "end_minute": 770,
+          "start_date": null,
+          "end_date": null
+        }
+      ],
+      "required_component_ids": [],
+      "component": "lecture",
+      "credit_value": 2.0,
+      "instructor": "Fictional Instructor",
+      "location": null,
+      "modality": "in_person",
+      "linkage_status": "not_required"
+    },
+    {
+      "id": "demo-110-a",
+      "term_id": "sample-spring-2027",
+      "course_id": "DEMO 110",
+      "number": "A",
+      "source_snapshot_id": "fictional-authoring-v1",
+      "meetings": [
+        {
+          "kind": "timed",
+          "weekday": 4,
+          "start_minute": 600,
+          "end_minute": 650,
+          "start_date": null,
+          "end_date": null
+        }
+      ],
+      "required_component_ids": [],
+      "component": "seminar",
+      "credit_value": 3.0,
+      "instructor": "Fictional Instructor",
+      "location": null,
+      "modality": "in_person",
+      "linkage_status": "not_required"
+    },
+    {
+      "id": "demo-110-b",
+      "term_id": "sample-spring-2027",
+      "course_id": "DEMO 110",
+      "number": "B",
+      "source_snapshot_id": "fictional-authoring-v1",
+      "meetings": [
+        {
+          "kind": "unknown",
+          "weekday": null,
+          "start_minute": null,
+          "end_minute": null,
+          "start_date": null,
+          "end_date": null
+        }
+      ],
+      "required_component_ids": [],
+      "component": "seminar",
+      "credit_value": 3.0,
+      "instructor": "Fictional Instructor",
+      "location": null,
+      "modality": "unknown",
+      "linkage_status": "not_required"
+    }
+  ],
+  "bundles": [
+    {
+      "id": "bundle-101-a",
+      "term_id": "sample-spring-2027",
+      "course_id": "DEMO 101",
+      "section_ids": [
+        "demo-101-a"
+      ],
+      "credits": 3.0,
+      "source_snapshot_id": "fictional-authoring-v1"
+    },
+    {
+      "id": "bundle-101-b",
+      "term_id": "sample-spring-2027",
+      "course_id": "DEMO 101",
+      "section_ids": [
+        "demo-101-b"
+      ],
+      "credits": 3.0,
+      "source_snapshot_id": "fictional-authoring-v1"
+    },
+    {
+      "id": "bundle-102-a",
+      "term_id": "sample-spring-2027",
+      "course_id": "DEMO 102",
+      "section_ids": [
+        "demo-102-a"
+      ],
+      "credits": 3.0,
+      "source_snapshot_id": "fictional-authoring-v1"
+    },
+    {
+      "id": "bundle-102-b",
+      "term_id": "sample-spring-2027",
+      "course_id": "DEMO 102",
+      "section_ids": [
+        "demo-102-b"
+      ],
+      "credits": 3.0,
+      "source_snapshot_id": "fictional-authoring-v1"
+    },
+    {
+      "id": "bundle-103-a",
+      "term_id": "sample-spring-2027",
+      "course_id": "DEMO 103",
+      "section_ids": [
+        "demo-103-a",
+        "demo-103-a-lab"
+      ],
+      "credits": 4.0,
+      "source_snapshot_id": "fictional-authoring-v1"
+    },
+    {
+      "id": "bundle-103-b",
+      "term_id": "sample-spring-2027",
+      "course_id": "DEMO 103",
+      "section_ids": [
+        "demo-103-b",
+        "demo-103-b-lab"
+      ],
+      "credits": 4.0,
+      "source_snapshot_id": "fictional-authoring-v1"
+    },
+    {
+      "id": "bundle-104-a",
+      "term_id": "sample-spring-2027",
+      "course_id": "DEMO 104",
+      "section_ids": [
+        "demo-104-a"
+      ],
+      "credits": 1.0,
+      "source_snapshot_id": "fictional-authoring-v1"
+    },
+    {
+      "id": "bundle-104-b",
+      "term_id": "sample-spring-2027",
+      "course_id": "DEMO 104",
+      "section_ids": [
+        "demo-104-b"
+      ],
+      "credits": 1.0,
+      "source_snapshot_id": "fictional-authoring-v1"
+    },
+    {
+      "id": "bundle-105-a",
+      "term_id": "sample-spring-2027",
+      "course_id": "DEMO 105",
+      "section_ids": [
+        "demo-105-a"
+      ],
+      "credits": 3.0,
+      "source_snapshot_id": "fictional-authoring-v1"
+    },
+    {
+      "id": "bundle-105-b",
+      "term_id": "sample-spring-2027",
+      "course_id": "DEMO 105",
+      "section_ids": [
+        "demo-105-b"
+      ],
+      "credits": 3.0,
+      "source_snapshot_id": "fictional-authoring-v1"
+    },
+    {
+      "id": "bundle-106-a",
+      "term_id": "sample-spring-2027",
+      "course_id": "DEMO 106",
+      "section_ids": [
+        "demo-106-a"
+      ],
+      "credits": 3.0,
+      "source_snapshot_id": "fictional-authoring-v1"
+    },
+    {
+      "id": "bundle-106-b",
+      "term_id": "sample-spring-2027",
+      "course_id": "DEMO 106",
+      "section_ids": [
+        "demo-106-b"
+      ],
+      "credits": 3.0,
+      "source_snapshot_id": "fictional-authoring-v1"
+    },
+    {
+      "id": "bundle-107-a",
+      "term_id": "sample-spring-2027",
+      "course_id": "DEMO 107",
+      "section_ids": [
+        "demo-107-a"
+      ],
+      "credits": 3.0,
+      "source_snapshot_id": "fictional-authoring-v1"
+    },
+    {
+      "id": "bundle-107-b",
+      "term_id": "sample-spring-2027",
+      "course_id": "DEMO 107",
+      "section_ids": [
+        "demo-107-b"
+      ],
+      "credits": 3.0,
+      "source_snapshot_id": "fictional-authoring-v1"
+    },
+    {
+      "id": "bundle-108-a",
+      "term_id": "sample-spring-2027",
+      "course_id": "DEMO 108",
+      "section_ids": [
+        "demo-108-a"
+      ],
+      "credits": 3.0,
+      "source_snapshot_id": "fictional-authoring-v1"
+    },
+    {
+      "id": "bundle-108-b",
+      "term_id": "sample-spring-2027",
+      "course_id": "DEMO 108",
+      "section_ids": [
+        "demo-108-b"
+      ],
+      "credits": 3.0,
+      "source_snapshot_id": "fictional-authoring-v1"
+    },
+    {
+      "id": "bundle-109-a",
+      "term_id": "sample-spring-2027",
+      "course_id": "DEMO 109",
+      "section_ids": [
+        "demo-109-a"
+      ],
+      "credits": 2.0,
+      "source_snapshot_id": "fictional-authoring-v1"
+    },
+    {
+      "id": "bundle-109-b",
+      "term_id": "sample-spring-2027",
+      "course_id": "DEMO 109",
+      "section_ids": [
+        "demo-109-b"
+      ],
+      "credits": 2.0,
+      "source_snapshot_id": "fictional-authoring-v1"
+    },
+    {
+      "id": "bundle-110-a",
+      "term_id": "sample-spring-2027",
+      "course_id": "DEMO 110",
+      "section_ids": [
+        "demo-110-a"
+      ],
+      "credits": 3.0,
+      "source_snapshot_id": "fictional-authoring-v1"
+    },
+    {
+      "id": "bundle-110-b",
+      "term_id": "sample-spring-2027",
+      "course_id": "DEMO 110",
+      "section_ids": [
+        "demo-110-b"
+      ],
+      "credits": 3.0,
+      "source_snapshot_id": "fictional-authoring-v1"
+    }
+  ]
+}

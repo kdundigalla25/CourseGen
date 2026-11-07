@@ -1,0 +1,544 @@
+{
+  "id": "ideas-2025-2026",
+  "revision": "2026-11-07.1",
+  "cohort_year": 2025,
+  "catalog_year": "2025-2026",
+  "sources": [
+    {
+      "id": "unc-gened-2025",
+      "url": "https://catalog.unc.edu/pdf/2025-26-ugrad.pdf",
+      "edition": "2025-2026",
+      "locator": "PDF pp. 634-636 (1-based)",
+      "verified_on": "2026-11-07",
+      "content_sha256": "39ede23abafb396efb6a4236cdc189d97af5464167747568b00ae450db1ccf31"
+    }
+  ],
+  "requirements": [
+    {
+      "id": "fy-writing",
+      "label": "Writing at the Research University",
+      "group": "first_year",
+      "kind": "course",
+      "audit_labels": [
+        "ENGL 105 or ENGL 105i",
+        "Writing at the Research University",
+        "ENGL 105"
+      ],
+      "source_ids": [
+        "unc-gened-2025"
+      ],
+      "course_ids": [
+        "ENGL 105"
+      ],
+      "minimum_courses": 1,
+      "support": "candidate_matching",
+      "notes": [
+        "Transfer versus exam-credit rules require verification."
+      ]
+    },
+    {
+      "id": "fy-thrive",
+      "label": "College Thriving",
+      "group": "first_year",
+      "kind": "course",
+      "audit_labels": [
+        "College Thriving",
+        "College Thriving (IDST 101)"
+      ],
+      "source_ids": [
+        "unc-gened-2025"
+      ],
+      "course_ids": [
+        "IDST 101",
+        "HNRS 101"
+      ],
+      "minimum_courses": 1,
+      "support": "candidate_matching",
+      "notes": [
+        "HNRS 101 is an honors alternative; eligibility must be verified."
+      ]
+    },
+    {
+      "id": "fy-seminar",
+      "label": "First-Year Seminar or Launch",
+      "group": "first_year",
+      "kind": "attribute",
+      "audit_labels": [
+        "First Year Seminar or Launch",
+        "First-Year Seminar or First-Year Launch"
+      ],
+      "source_ids": [
+        "unc-gened-2025"
+      ],
+      "attribute_ids": [
+        "FY-SEMINAR",
+        "FY-LAUNCH"
+      ],
+      "minimum_courses": 1,
+      "support": "candidate_matching"
+    },
+    {
+      "id": "fy-data",
+      "label": "Data Literacy",
+      "group": "first_year",
+      "kind": "course",
+      "audit_labels": [
+        "First Year Data Lab",
+        "Data Literacy Lab"
+      ],
+      "source_ids": [
+        "unc-gened-2025"
+      ],
+      "attribute_ids": [],
+      "course_ids": [
+        "IDST 111L"
+      ],
+      "minimum_courses": 1,
+      "support": "candidate_matching"
+    },
+    {
+      "id": "global-language",
+      "label": "Global Language through level 3",
+      "group": "first_year",
+      "kind": "policy",
+      "audit_labels": [
+        "Global Language Level 1",
+        "Global Language Level 2",
+        "Global Language Level 3 or Higher",
+        "Global Language through level 3"
+      ],
+      "source_ids": [
+        "unc-gened-2025"
+      ],
+      "notes": [
+        "Language levels, placement and transfer equivalencies are not evaluated."
+      ]
+    },
+    {
+      "id": "fc-aesth",
+      "label": "Aesthetic and Interpretive Analysis",
+      "group": "focus",
+      "kind": "attribute",
+      "audit_labels": [
+        "Aesthetic and Interpretive Analysis"
+      ],
+      "source_ids": [
+        "unc-gened-2025"
+      ],
+      "attribute_ids": [
+        "FC-AESTH"
+      ],
+      "minimum_courses": 1,
+      "minimum_credits": 3,
+      "support": "candidate_matching"
+    },
+    {
+      "id": "fc-create",
+      "label": "Creative Expression, Practice, and Production",
+      "group": "focus",
+      "kind": "attribute",
+      "audit_labels": [
+        "Creative Expression, Practice, and Production"
+      ],
+      "source_ids": [
+        "unc-gened-2025"
+      ],
+      "attribute_ids": [
+        "FC-CREATE"
+      ],
+      "minimum_courses": 1,
+      "minimum_credits": 3,
+      "support": "candidate_matching"
+    },
+    {
+      "id": "fc-past",
+      "label": "Engagement with the Human Past",
+      "group": "focus",
+      "kind": "attribute",
+      "audit_labels": [
+        "Engagement with the Human Past"
+      ],
+      "source_ids": [
+        "unc-gened-2025"
+      ],
+      "attribute_ids": [
+        "FC-PAST"
+      ],
+      "minimum_courses": 1,
+      "minimum_credits": 3,
+      "support": "candidate_matching"
+    },
+    {
+      "id": "fc-values",
+      "label": "Ethical and Civic Values",
+      "group": "focus",
+      "kind": "attribute",
+      "audit_labels": [
+        "Ethical and Civic Values"
+      ],
+      "source_ids": [
+        "unc-gened-2025"
+      ],
+      "attribute_ids": [
+        "FC-VALUES"
+      ],
+      "minimum_courses": 1,
+      "minimum_credits": 3,
+      "support": "candidate_matching"
+    },
+    {
+      "id": "fc-global",
+      "label": "Global Understanding and Engagement",
+      "group": "focus",
+      "kind": "attribute",
+      "audit_labels": [
+        "Global Understanding and Engagement"
+      ],
+      "source_ids": [
+        "unc-gened-2025"
+      ],
+      "attribute_ids": [
+        "FC-GLOBAL"
+      ],
+      "minimum_courses": 1,
+      "minimum_credits": 3,
+      "support": "candidate_matching"
+    },
+    {
+      "id": "fc-natsci",
+      "label": "Natural Scientific Investigation",
+      "group": "focus",
+      "kind": "attribute",
+      "audit_labels": [
+        "Natural Scientific Investigation"
+      ],
+      "source_ids": [
+        "unc-gened-2025"
+      ],
+      "attribute_ids": [
+        "FC-NATSCI"
+      ],
+      "minimum_courses": 1,
+      "minimum_credits": 3,
+      "support": "candidate_matching"
+    },
+    {
+      "id": "fc-power",
+      "label": "Power and Society",
+      "group": "focus",
+      "kind": "attribute",
+      "audit_labels": [
+        "Power and Society"
+      ],
+      "source_ids": [
+        "unc-gened-2025"
+      ],
+      "attribute_ids": [
+        "FC-POWER"
+      ],
+      "minimum_courses": 1,
+      "minimum_credits": 3,
+      "support": "candidate_matching"
+    },
+    {
+      "id": "fc-quant",
+      "label": "Quantitative Reasoning",
+      "group": "focus",
+      "kind": "attribute",
+      "audit_labels": [
+        "Quantitative Reasoning"
+      ],
+      "source_ids": [
+        "unc-gened-2025"
+      ],
+      "attribute_ids": [
+        "FC-QUANT"
+      ],
+      "minimum_courses": 1,
+      "minimum_credits": 3,
+      "support": "candidate_matching"
+    },
+    {
+      "id": "fc-knowing",
+      "label": "Ways of Knowing",
+      "group": "focus",
+      "kind": "attribute",
+      "audit_labels": [
+        "Ways of Knowing"
+      ],
+      "source_ids": [
+        "unc-gened-2025"
+      ],
+      "attribute_ids": [
+        "FC-KNOWING"
+      ],
+      "minimum_courses": 1,
+      "minimum_credits": 3,
+      "support": "candidate_matching"
+    },
+    {
+      "id": "empirical-lab",
+      "label": "Empirical Investigation Lab",
+      "group": "focus_lab",
+      "kind": "attribute",
+      "audit_labels": [
+        "Empirical Investigative Laboratory",
+        "Empirical Investigation Lab",
+        "Empirical Investigative Lab"
+      ],
+      "source_ids": [
+        "unc-gened-2025"
+      ],
+      "attribute_ids": [
+        "FC-LAB"
+      ],
+      "minimum_credits": 1,
+      "support": "candidate_matching",
+      "notes": [
+        "Association with a Focus Capacity course and approved lab credit must be checked."
+      ]
+    },
+    {
+      "id": "research",
+      "label": "Research and Discovery",
+      "group": "reflection",
+      "kind": "attribute",
+      "audit_labels": [
+        "Research and Discovery"
+      ],
+      "source_ids": [
+        "unc-gened-2025"
+      ],
+      "attribute_ids": [
+        "RESEARCH"
+      ],
+      "minimum_courses": 1,
+      "support": "candidate_matching",
+      "notes": []
+    },
+    {
+      "id": "high-impact",
+      "label": "High-Impact Experience",
+      "group": "reflection",
+      "kind": "policy",
+      "audit_labels": [
+        "High-Impact Experience",
+        "High Impact Experience"
+      ],
+      "source_ids": [
+        "unc-gened-2025"
+      ],
+      "attribute_ids": [],
+      "minimum_courses": 1,
+      "support": "manual",
+      "notes": [
+        "Alternative experience, repeat research and exemptions require manual verification."
+      ]
+    },
+    {
+      "id": "comm-beyond",
+      "label": "Communication Beyond Carolina",
+      "group": "reflection",
+      "kind": "attribute",
+      "audit_labels": [
+        "Communication Beyond Carolina"
+      ],
+      "source_ids": [
+        "unc-gened-2025"
+      ],
+      "attribute_ids": [
+        "COMMBEYOND"
+      ],
+      "minimum_courses": 1,
+      "support": "candidate_matching",
+      "notes": []
+    },
+    {
+      "id": "lfit",
+      "label": "Lifetime Fitness (LFIT)",
+      "group": "reflection",
+      "kind": "policy",
+      "audit_labels": [
+        "Lifetime Fitness (LFIT)"
+      ],
+      "source_ids": [
+        "unc-gened-2025"
+      ],
+      "attribute_ids": [],
+      "minimum_courses": 1,
+      "support": "manual",
+      "notes": [
+        "Lifetime Fitness course selection and athletic/ROTC exemptions need verification; no subject-prefix or designation rule is inferred here."
+      ]
+    },
+    {
+      "id": "interdisciplinary",
+      "label": "Interdisciplinary Course",
+      "group": "reflection",
+      "kind": "policy",
+      "audit_labels": [
+        "Interdisciplinary Course",
+        "Interdisciplinary"
+      ],
+      "source_ids": [
+        "unc-gened-2025"
+      ],
+      "minimum_courses": 1,
+      "minimum_credits": 3,
+      "notes": [
+        "New for Fall 2025 entrants onward; approved-course designations require separate source verification."
+      ]
+    },
+    {
+      "id": "american-democracy",
+      "label": "Foundations of American Democracy",
+      "group": "additional",
+      "kind": "policy",
+      "audit_labels": [
+        "Foundations of American Democracy"
+      ],
+      "source_ids": [
+        "unc-gened-2025"
+      ],
+      "minimum_courses": 1,
+      "minimum_credits": 3,
+      "notes": [
+        "New for Fall 2025 entrants onward; approved-course designations require separate source verification."
+      ]
+    },
+    {
+      "id": "campus-life",
+      "label": "Campus Life Experience",
+      "group": "reflection",
+      "kind": "non_course",
+      "audit_labels": [
+        "Campus Life Experience"
+      ],
+      "source_ids": [
+        "unc-gened-2025"
+      ],
+      "notes": [
+        "Use the reviewed Tracker event count. Do not convert events into scheduled courses or impose a fixed count from older catalogs."
+      ]
+    },
+    {
+      "id": "distribution",
+      "label": "Disciplinary Distribution",
+      "group": "additional",
+      "kind": "policy",
+      "audit_labels": [
+        "Disciplinary Distribution",
+        "Division of Humanities and Fine Arts",
+        "Division of Mathematics and Natural Sciences",
+        "Division of Social Sciences"
+      ],
+      "source_ids": [
+        "unc-gened-2025"
+      ],
+      "notes": [
+        "Three divisions; qualifying categories and division naming are edition-specific."
+      ]
+    },
+    {
+      "id": "supplemental-ba",
+      "label": "Supplemental General Education",
+      "group": "additional",
+      "kind": "policy",
+      "audit_labels": [
+        "Supplemental General Education"
+      ],
+      "source_ids": [
+        "unc-gened-2025"
+      ],
+      "notes": [
+        "BA-only applicability and major/minor/outside-department alternatives require manual verification."
+      ]
+    }
+  ],
+  "policies": [
+    {
+      "id": "one-focus",
+      "kind": "one_focus_per_course",
+      "requirement_ids": [
+        "fc-aesth",
+        "fc-create",
+        "fc-past",
+        "fc-values",
+        "fc-global",
+        "fc-natsci",
+        "fc-power",
+        "fc-quant",
+        "fc-knowing"
+      ],
+      "description": "A course can contribute to only one Focus Capacity, excluding the associated lab.",
+      "source_ids": [
+        "unc-gened-2025"
+      ]
+    },
+    {
+      "id": "research-high-impact",
+      "kind": "exclusive",
+      "requirement_ids": [
+        "research",
+        "high-impact"
+      ],
+      "description": "Do not use the same course or experience for both Research and Discovery and High-Impact Experience.",
+      "source_ids": [
+        "unc-gened-2025"
+      ]
+    },
+    {
+      "id": "focus-exam-limit",
+      "kind": "exam_focus_limit",
+      "limit": 5,
+      "requirement_ids": [
+        "fc-aesth",
+        "fc-create",
+        "fc-past",
+        "fc-values",
+        "fc-global",
+        "fc-natsci",
+        "fc-power",
+        "fc-quant",
+        "fc-knowing"
+      ],
+      "description": "At most five Focus Capacities plus the lab may be fulfilled using by-exam credit; verify application in the audit.",
+      "source_ids": [
+        "unc-gened-2025"
+      ]
+    },
+    {
+      "id": "supplemental-focus",
+      "kind": "manual",
+      "requirement_ids": [
+        "supplemental-ba",
+        "fc-aesth",
+        "fc-create",
+        "fc-past",
+        "fc-values",
+        "fc-global",
+        "fc-natsci",
+        "fc-power",
+        "fc-quant",
+        "fc-knowing"
+      ],
+      "description": "Supplemental General Education cannot double count with a Focus Capacity.",
+      "source_ids": [
+        "unc-gened-2025"
+      ]
+    }
+  ],
+  "limitations": [
+    "Category definitions and selected candidate selectors only; no degree completion is evaluated.",
+    "Transfer/CAA, placement, program-specific exceptions, residency, grading policies and supplemental BA requirements require manual verification.",
+    "Attribute designations require a matching catalog/section edition; current attributes cannot be projected onto historical coursework."
+  ],
+  "signature_rule_ids": [
+    "fy-data",
+    "interdisciplinary"
+  ],
+  "signature_cohort_years": [
+    2025,
+    2026
+  ]
+}

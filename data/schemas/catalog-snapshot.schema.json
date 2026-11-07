@@ -1,0 +1,618 @@
+{
+  "$defs": {
+    "Course": {
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "title": "Id",
+          "type": "string"
+        },
+        "title": {
+          "title": "Title",
+          "type": "string"
+        },
+        "credits_min": {
+          "minimum": 0,
+          "title": "Credits Min",
+          "type": "number"
+        },
+        "credits_max": {
+          "minimum": 0,
+          "title": "Credits Max",
+          "type": "number"
+        },
+        "source_snapshot_id": {
+          "title": "Source Snapshot Id",
+          "type": "string"
+        },
+        "prerequisite_text": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Prerequisite Text"
+        },
+        "edition": {
+          "default": "unversioned",
+          "title": "Edition",
+          "type": "string"
+        },
+        "description": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Description"
+        },
+        "repeatable": {
+          "default": false,
+          "title": "Repeatable",
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "id",
+        "title",
+        "credits_min",
+        "credits_max",
+        "source_snapshot_id"
+      ],
+      "title": "Course",
+      "type": "object"
+    },
+    "CourseDesignation": {
+      "additionalProperties": false,
+      "properties": {
+        "course_id": {
+          "title": "Course Id",
+          "type": "string"
+        },
+        "edition": {
+          "title": "Edition",
+          "type": "string"
+        },
+        "attribute_id": {
+          "title": "Attribute Id",
+          "type": "string"
+        },
+        "source_snapshot_id": {
+          "title": "Source Snapshot Id",
+          "type": "string"
+        },
+        "section_id": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Section Id"
+        },
+        "term_id": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Term Id"
+        }
+      },
+      "required": [
+        "course_id",
+        "edition",
+        "attribute_id",
+        "source_snapshot_id"
+      ],
+      "title": "CourseDesignation",
+      "type": "object"
+    },
+    "Meeting": {
+      "additionalProperties": false,
+      "properties": {
+        "kind": {
+          "enum": [
+            "timed",
+            "asynchronous",
+            "arranged",
+            "unknown"
+          ],
+          "title": "Kind",
+          "type": "string"
+        },
+        "weekday": {
+          "anyOf": [
+            {
+              "maximum": 6,
+              "minimum": 0,
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Weekday"
+        },
+        "start_minute": {
+          "anyOf": [
+            {
+              "exclusiveMaximum": 1440,
+              "minimum": 0,
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Start Minute"
+        },
+        "end_minute": {
+          "anyOf": [
+            {
+              "exclusiveMinimum": 0,
+              "maximum": 1440,
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "End Minute"
+        },
+        "start_date": {
+          "anyOf": [
+            {
+              "format": "date",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Start Date"
+        },
+        "end_date": {
+          "anyOf": [
+            {
+              "format": "date",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "End Date"
+        }
+      },
+      "required": [
+        "kind"
+      ],
+      "title": "Meeting",
+      "type": "object"
+    },
+    "Section": {
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "title": "Id",
+          "type": "string"
+        },
+        "term_id": {
+          "title": "Term Id",
+          "type": "string"
+        },
+        "course_id": {
+          "title": "Course Id",
+          "type": "string"
+        },
+        "number": {
+          "title": "Number",
+          "type": "string"
+        },
+        "source_snapshot_id": {
+          "title": "Source Snapshot Id",
+          "type": "string"
+        },
+        "meetings": {
+          "items": {
+            "$ref": "#/$defs/Meeting"
+          },
+          "title": "Meetings",
+          "type": "array"
+        },
+        "required_component_ids": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Required Component Ids",
+          "type": "array"
+        },
+        "component": {
+          "default": "lecture",
+          "enum": [
+            "lecture",
+            "lab",
+            "recitation",
+            "seminar",
+            "other"
+          ],
+          "title": "Component",
+          "type": "string"
+        },
+        "credit_value": {
+          "anyOf": [
+            {
+              "minimum": 0,
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Credit Value"
+        },
+        "instructor": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Instructor"
+        },
+        "location": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Location"
+        },
+        "modality": {
+          "default": "unknown",
+          "enum": [
+            "in_person",
+            "online_synchronous",
+            "asynchronous",
+            "hybrid",
+            "unknown"
+          ],
+          "title": "Modality",
+          "type": "string"
+        },
+        "linkage_status": {
+          "default": "unknown",
+          "enum": [
+            "verified",
+            "not_required",
+            "unknown"
+          ],
+          "title": "Linkage Status",
+          "type": "string"
+        },
+        "crosslist_group_id": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Crosslist Group Id"
+        }
+      },
+      "required": [
+        "id",
+        "term_id",
+        "course_id",
+        "number",
+        "source_snapshot_id",
+        "meetings"
+      ],
+      "title": "Section",
+      "type": "object"
+    },
+    "SectionBundle": {
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "title": "Id",
+          "type": "string"
+        },
+        "term_id": {
+          "title": "Term Id",
+          "type": "string"
+        },
+        "course_id": {
+          "title": "Course Id",
+          "type": "string"
+        },
+        "section_ids": {
+          "items": {
+            "type": "string"
+          },
+          "minItems": 1,
+          "title": "Section Ids",
+          "type": "array"
+        },
+        "credits": {
+          "minimum": 0,
+          "title": "Credits",
+          "type": "number"
+        },
+        "source_snapshot_id": {
+          "title": "Source Snapshot Id",
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "term_id",
+        "course_id",
+        "section_ids",
+        "credits",
+        "source_snapshot_id"
+      ],
+      "title": "SectionBundle",
+      "type": "object"
+    },
+    "SourceSnapshot": {
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "title": "Id",
+          "type": "string"
+        },
+        "source_url": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Source Url"
+        },
+        "retrieved_at": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Retrieved At"
+        },
+        "classification": {
+          "enum": [
+            "public",
+            "fictional"
+          ],
+          "title": "Classification",
+          "type": "string"
+        },
+        "edition": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Edition"
+        },
+        "content_sha256": {
+          "anyOf": [
+            {
+              "pattern": "^[a-f0-9]{64}$",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Content Sha256"
+        },
+        "adapter_version": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Adapter Version"
+        }
+      },
+      "required": [
+        "id",
+        "classification"
+      ],
+      "title": "SourceSnapshot",
+      "type": "object"
+    },
+    "Term": {
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "title": "Id",
+          "type": "string"
+        },
+        "name": {
+          "title": "Name",
+          "type": "string"
+        },
+        "catalog_edition": {
+          "title": "Catalog Edition",
+          "type": "string"
+        },
+        "timezone": {
+          "const": "America/New_York",
+          "default": "America/New_York",
+          "title": "Timezone",
+          "type": "string"
+        },
+        "start_date": {
+          "anyOf": [
+            {
+              "format": "date",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Start Date"
+        },
+        "end_date": {
+          "anyOf": [
+            {
+              "format": "date",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "End Date"
+        }
+      },
+      "required": [
+        "id",
+        "name",
+        "catalog_edition"
+      ],
+      "title": "Term",
+      "type": "object"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "schema_version": {
+      "const": "1",
+      "default": "1",
+      "title": "Schema Version",
+      "type": "string"
+    },
+    "id": {
+      "pattern": "^[a-z0-9][a-z0-9-]{0,99}$",
+      "title": "Id",
+      "type": "string"
+    },
+    "classification": {
+      "enum": [
+        "fictional",
+        "public"
+      ],
+      "title": "Classification",
+      "type": "string"
+    },
+    "description": {
+      "title": "Description",
+      "type": "string"
+    },
+    "created_at": {
+      "format": "date-time",
+      "title": "Created At",
+      "type": "string"
+    },
+    "sources": {
+      "items": {
+        "$ref": "#/$defs/SourceSnapshot"
+      },
+      "minItems": 1,
+      "title": "Sources",
+      "type": "array"
+    },
+    "courses": {
+      "items": {
+        "$ref": "#/$defs/Course"
+      },
+      "title": "Courses",
+      "type": "array"
+    },
+    "designations": {
+      "items": {
+        "$ref": "#/$defs/CourseDesignation"
+      },
+      "title": "Designations",
+      "type": "array"
+    },
+    "terms": {
+      "items": {
+        "$ref": "#/$defs/Term"
+      },
+      "title": "Terms",
+      "type": "array"
+    },
+    "sections": {
+      "items": {
+        "$ref": "#/$defs/Section"
+      },
+      "title": "Sections",
+      "type": "array"
+    },
+    "bundles": {
+      "items": {
+        "$ref": "#/$defs/SectionBundle"
+      },
+      "title": "Bundles",
+      "type": "array"
+    }
+  },
+  "required": [
+    "id",
+    "classification",
+    "description",
+    "created_at",
+    "sources",
+    "courses",
+    "terms",
+    "sections",
+    "bundles"
+  ],
+  "title": "CatalogSnapshot",
+  "type": "object"
+}

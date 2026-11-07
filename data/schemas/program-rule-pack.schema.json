@@ -1,0 +1,338 @@
+{
+  "$defs": {
+    "CountingPolicy": {
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "title": "Id",
+          "type": "string"
+        },
+        "kind": {
+          "enum": [
+            "one_focus_per_course",
+            "exclusive",
+            "exam_focus_limit",
+            "manual"
+          ],
+          "title": "Kind",
+          "type": "string"
+        },
+        "requirement_ids": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Requirement Ids",
+          "type": "array"
+        },
+        "limit": {
+          "anyOf": [
+            {
+              "minimum": 0,
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Limit"
+        },
+        "description": {
+          "title": "Description",
+          "type": "string"
+        },
+        "source_ids": {
+          "items": {
+            "type": "string"
+          },
+          "minItems": 1,
+          "title": "Source Ids",
+          "type": "array"
+        },
+        "enforcement": {
+          "const": "not_evaluated",
+          "default": "not_evaluated",
+          "title": "Enforcement",
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "kind",
+        "description",
+        "source_ids"
+      ],
+      "title": "CountingPolicy",
+      "type": "object"
+    },
+    "RequirementDefinition": {
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "title": "Id",
+          "type": "string"
+        },
+        "label": {
+          "title": "Label",
+          "type": "string"
+        },
+        "group": {
+          "title": "Group",
+          "type": "string"
+        },
+        "kind": {
+          "enum": [
+            "course",
+            "attribute",
+            "any_of",
+            "all_of",
+            "policy",
+            "non_course"
+          ],
+          "title": "Kind",
+          "type": "string"
+        },
+        "audit_labels": {
+          "items": {
+            "type": "string"
+          },
+          "minItems": 1,
+          "title": "Audit Labels",
+          "type": "array"
+        },
+        "course_ids": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Course Ids",
+          "type": "array"
+        },
+        "attribute_ids": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Attribute Ids",
+          "type": "array"
+        },
+        "child_ids": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Child Ids",
+          "type": "array"
+        },
+        "minimum_courses": {
+          "anyOf": [
+            {
+              "minimum": 0,
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Minimum Courses"
+        },
+        "minimum_credits": {
+          "anyOf": [
+            {
+              "minimum": 0,
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Minimum Credits"
+        },
+        "minimum_grade": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Minimum Grade"
+        },
+        "source_ids": {
+          "items": {
+            "type": "string"
+          },
+          "minItems": 1,
+          "title": "Source Ids",
+          "type": "array"
+        },
+        "notes": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Notes",
+          "type": "array"
+        },
+        "support": {
+          "default": "manual",
+          "enum": [
+            "candidate_matching",
+            "manual"
+          ],
+          "title": "Support",
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "label",
+        "group",
+        "kind",
+        "audit_labels",
+        "source_ids"
+      ],
+      "title": "RequirementDefinition",
+      "type": "object"
+    },
+    "RuleSource": {
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "title": "Id",
+          "type": "string"
+        },
+        "url": {
+          "format": "uri",
+          "maxLength": 2083,
+          "minLength": 1,
+          "title": "Url",
+          "type": "string"
+        },
+        "edition": {
+          "title": "Edition",
+          "type": "string"
+        },
+        "locator": {
+          "title": "Locator",
+          "type": "string"
+        },
+        "verified_on": {
+          "format": "date",
+          "title": "Verified On",
+          "type": "string"
+        },
+        "content_sha256": {
+          "pattern": "^[a-f0-9]{64}$",
+          "title": "Content Sha256",
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "url",
+        "edition",
+        "locator",
+        "verified_on",
+        "content_sha256"
+      ],
+      "title": "RuleSource",
+      "type": "object"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "schema_version": {
+      "const": "1",
+      "default": "1",
+      "title": "Schema Version",
+      "type": "string"
+    },
+    "id": {
+      "pattern": "^[a-z0-9][a-z0-9-]+$",
+      "title": "Id",
+      "type": "string"
+    },
+    "revision": {
+      "title": "Revision",
+      "type": "string"
+    },
+    "coverage": {
+      "const": "partial",
+      "default": "partial",
+      "title": "Coverage",
+      "type": "string"
+    },
+    "sources": {
+      "items": {
+        "$ref": "#/$defs/RuleSource"
+      },
+      "minItems": 1,
+      "title": "Sources",
+      "type": "array"
+    },
+    "requirements": {
+      "items": {
+        "$ref": "#/$defs/RequirementDefinition"
+      },
+      "minItems": 1,
+      "title": "Requirements",
+      "type": "array"
+    },
+    "policies": {
+      "items": {
+        "$ref": "#/$defs/CountingPolicy"
+      },
+      "title": "Policies",
+      "type": "array"
+    },
+    "limitations": {
+      "items": {
+        "type": "string"
+      },
+      "minItems": 1,
+      "title": "Limitations",
+      "type": "array"
+    },
+    "scope": {
+      "const": "program",
+      "default": "program",
+      "title": "Scope",
+      "type": "string"
+    },
+    "program_id": {
+      "title": "Program Id",
+      "type": "string"
+    },
+    "program_name": {
+      "title": "Program Name",
+      "type": "string"
+    },
+    "audit_program_names": {
+      "items": {
+        "type": "string"
+      },
+      "minItems": 1,
+      "title": "Audit Program Names",
+      "type": "array"
+    },
+    "requirement_term": {
+      "pattern": "^\\d{4} (Fall|Spr|Spring|SumI|SumII|Summer)$",
+      "title": "Requirement Term",
+      "type": "string"
+    }
+  },
+  "required": [
+    "id",
+    "revision",
+    "sources",
+    "requirements",
+    "limitations",
+    "program_id",
+    "program_name",
+    "audit_program_names",
+    "requirement_term"
+  ],
+  "title": "ProgramRulePack",
+  "type": "object"
+}

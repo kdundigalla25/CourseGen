@@ -1,0 +1,26 @@
+.comparison { margin: 2rem 0; }
+.calendar-comparison { display: grid; grid-template-columns: repeat(auto-fit,minmax(min(100%,480px),1fr)); gap: 1rem; }
+.calendar-option { min-width: 0; padding: .8rem; border: 1px solid var(--line,#cbd5e1); border-radius: 12px; background: white; }
+.calendar-option h4 { margin-top: 0; }
+.calendar-scroll { margin-top: 1rem; overflow-x: auto; border: 1px solid #cbd5e1; border-radius: 6px; }
+.week-calendar { min-width: 620px; font-size: 11px; }
+.calendar-head { display: grid; grid-template-columns: 48px repeat(7,1fr); text-align:center; background:#edf4f8; padding:8px 0; }
+.calendar-head small { display:block; }
+.calendar-body { position:relative; margin-bottom:18px; }
+.hour-line { position:absolute; width:100%; border-top:1px solid #e2e8f0; }
+.hour-line>span { position:relative; top:2px; padding-left:3px; color:#475569; }
+.calendar-event { position:absolute; border:1px solid #315b71; border-left-width:3px; border-radius:4px; padding:2px 3px; font-size:10px; line-height:1.15; text-align:left; overflow:hidden; color:#102e44; background:#d6e9f3; min-height:0; }
+.calendar-event strong,.calendar-event span { display:block; }
+.calendar-event:focus-visible { outline:3px solid #102e44; z-index:2; }
+.course-color-1 { background:#e6e0f7; }.course-color-2 { background:#d9efe2; }.course-color-3 { background:#fff0ce; }.course-color-4 { background:#f9dfe7; }.course-color-5 { background:#d5eeee; }
+.export-controls { padding:1rem 0; }.export-buttons { display:flex; flex-wrap:wrap; gap:.6rem; }
+.comparison button:not(.calendar-event) { border:1px solid #9db8c9; background:#f1f7fb; color:#173f58; padding:9px 12px; border-radius:6px; font-size:12px; }
+.comparison button[aria-pressed=true] { background:#225a7e; color:white; }
+.comparison button:focus-visible,.calendar-scroll:focus-visible { outline:3px solid #225a7e; outline-offset:3px; }
+.print-sheet { display:none; }
+@media print {
+  body:has(> .print-sheet) > * { display:none!important; }
+  body > .print-sheet { display:block!important; color:#000; background:white; font:12pt/1.4 sans-serif; }
+  .print-sheet h1 { font-size:20pt; }.print-sheet .scheduled-course { break-inside:avoid; }
+  @page { margin:16mm; }
+}

@@ -1,0 +1,9 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><title>UNC section exporter</title><link rel="stylesheet" href="popup.css"></head>
+<body><h1>Export class details</h1><p>Preview adapter · Verify an export before importing it.</p>
+<label for="term">Semester shown in ConnectCarolina</label><input id="term" placeholder="2027 Spring" autocomplete="off">
+<p>Search a subject, expand the sections you want, then capture this page. Navigate and repeat to collect more sections.</p>
+<button id="capture">Capture expanded sections</button><p id="status" role="status" aria-live="polite"></p>
+<ul id="errors"></ul><p id="summary"></p><button id="download" disabled>Download review JSON</button><button id="clear">Clear collected sections</button>
+<p>Records stay in this Chrome session. Captures cover expanded sections only; they do not establish a complete subject import. No passwords, cookies or whole-page content are exported.</p>
+<script type="module" src="popup.js"></script></body></html>

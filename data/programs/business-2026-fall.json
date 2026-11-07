@@ -1,0 +1,228 @@
+{
+  "id": "business-2026-fall",
+  "revision": "2026-11-07.1",
+  "program_id": "business-bsba",
+  "program_name": "Business Administration BSBA",
+  "audit_program_names": [
+    "Business Administration Major"
+  ],
+  "requirement_term": "2026 Fall",
+  "sources": [
+    {
+      "id": "unc-business-2026",
+      "url": "https://catalog.unc.edu/undergraduate/programs-study/business-administration-major-bsba/",
+      "edition": "2026-2027",
+      "locator": "Requirements; Core Business Courses; footnotes",
+      "verified_on": "2026-11-07",
+      "content_sha256": "ef465192143714300c80eec1a3fd4cd43ce43ccd466696487b08867d51bf5697"
+    }
+  ],
+  "requirements": [
+    {
+      "id": "busi-401",
+      "label": "BUSI 401",
+      "group": "core",
+      "kind": "course",
+      "audit_labels": [
+        "BUSI 401"
+      ],
+      "source_ids": [
+        "unc-business-2026"
+      ],
+      "course_ids": [
+        "BUSI 401"
+      ],
+      "minimum_courses": 1,
+      "support": "candidate_matching"
+    },
+    {
+      "id": "busi-402",
+      "label": "BUSI 402 or ECON 410",
+      "group": "core",
+      "kind": "any_of",
+      "audit_labels": [
+        "BUSI 402 or ECON 410"
+      ],
+      "source_ids": [
+        "unc-business-2026"
+      ],
+      "course_ids": [
+        "BUSI 402",
+        "ECON 410"
+      ],
+      "minimum_courses": 1,
+      "support": "candidate_matching"
+    },
+    {
+      "id": "busi-403",
+      "label": "BUSI 403",
+      "group": "core",
+      "kind": "course",
+      "audit_labels": [
+        "BUSI 403"
+      ],
+      "source_ids": [
+        "unc-business-2026"
+      ],
+      "course_ids": [
+        "BUSI 403"
+      ],
+      "minimum_courses": 1,
+      "support": "candidate_matching"
+    },
+    {
+      "id": "busi-404",
+      "label": "BUSI 404",
+      "group": "core",
+      "kind": "course",
+      "audit_labels": [
+        "BUSI 404"
+      ],
+      "source_ids": [
+        "unc-business-2026"
+      ],
+      "course_ids": [
+        "BUSI 404"
+      ],
+      "minimum_courses": 1,
+      "support": "candidate_matching"
+    },
+    {
+      "id": "busi-405",
+      "label": "BUSI 405",
+      "group": "core",
+      "kind": "course",
+      "audit_labels": [
+        "BUSI 405"
+      ],
+      "source_ids": [
+        "unc-business-2026"
+      ],
+      "course_ids": [
+        "BUSI 405"
+      ],
+      "minimum_courses": 1,
+      "support": "candidate_matching"
+    },
+    {
+      "id": "busi-406",
+      "label": "BUSI 406",
+      "group": "core",
+      "kind": "course",
+      "audit_labels": [
+        "BUSI 406"
+      ],
+      "source_ids": [
+        "unc-business-2026"
+      ],
+      "course_ids": [
+        "BUSI 406"
+      ],
+      "minimum_courses": 1,
+      "support": "candidate_matching"
+    },
+    {
+      "id": "busi-407",
+      "label": "BUSI 407",
+      "group": "core",
+      "kind": "course",
+      "audit_labels": [
+        "BUSI 407"
+      ],
+      "source_ids": [
+        "unc-business-2026"
+      ],
+      "course_ids": [
+        "BUSI 407"
+      ],
+      "minimum_courses": 1,
+      "support": "candidate_matching"
+    },
+    {
+      "id": "busi-408",
+      "label": "BUSI 408",
+      "group": "core",
+      "kind": "course",
+      "audit_labels": [
+        "BUSI 408"
+      ],
+      "source_ids": [
+        "unc-business-2026"
+      ],
+      "course_ids": [
+        "BUSI 408"
+      ],
+      "minimum_courses": 1,
+      "support": "candidate_matching"
+    },
+    {
+      "id": "busi-410",
+      "label": "BUSI 410",
+      "group": "core",
+      "kind": "course",
+      "audit_labels": [
+        "BUSI 410"
+      ],
+      "source_ids": [
+        "unc-business-2026"
+      ],
+      "course_ids": [
+        "BUSI 410"
+      ],
+      "minimum_courses": 1,
+      "support": "candidate_matching"
+    },
+    {
+      "id": "busi-411",
+      "label": "BUSI 411",
+      "group": "core",
+      "kind": "course",
+      "audit_labels": [
+        "BUSI 411"
+      ],
+      "source_ids": [
+        "unc-business-2026"
+      ],
+      "course_ids": [
+        "BUSI 411"
+      ],
+      "minimum_courses": 1,
+      "support": "candidate_matching"
+    },
+    {
+      "id": "busi-412",
+      "label": "BUSI 412",
+      "group": "core",
+      "kind": "course",
+      "audit_labels": [
+        "BUSI 412"
+      ],
+      "source_ids": [
+        "unc-business-2026"
+      ],
+      "course_ids": [
+        "BUSI 412"
+      ],
+      "minimum_courses": 1,
+      "support": "candidate_matching"
+    },
+    {
+      "id": "electives",
+      "label": "Business Electives",
+      "group": "policy",
+      "kind": "policy",
+      "audit_labels": [
+        "Business Electives"
+      ],
+      "source_ids": [
+        "unc-business-2026"
+      ],
+      "notes": [
+        "Normally 19.5 credits; ECON 410 alternative changes this to 18. The 300-level cap is six credits; verify area/prerequisite and modality restrictions."
+      ]
+    }
+  ],
+  "limitations": [
+    "Partial core-course candidate mapping only; admission timing, prerequisite groups, outside-school credits, electives and exceptions require manual verification."
+  ]
+}

@@ -1,0 +1,36 @@
+{
+  "description": "Synthetic business-shaped audit; public labels and fictional course rows, not an original student record.",
+  "pages": [
+    [
+      "Program Requirement", "Term", " Undergraduate Career 2026 Fall",
+      " AS Bachelor Program 2026 Fall", " Business Administration Major 2026 Fall",
+      " Catalog Year 2026-2027 (Expand for Important Advisement Report", "Information)",
+      "Not Satisfied: In-Progress Courses/Temporary Grades",
+      "∆ Not Satisfied: In-Progress Courses",
+      "BUSI  200 SYNTHETIC LEADERSHIP 3.00 2026 Fall",
+      "ENGL  105 SYNTHETIC WRITING", "(Writing across the Disciplines)", "3.00 2026 Fall",
+      "Satisfied: First-Year Foundations", "∆ Satisfied: ENGL 105 or ENGL 105i",
+      "· Courses: 1 required, 1 taken, 0 needed", "ENGL  105 SYNTHETIC WRITING", "(Writing across the Disciplines)", "3.00 2026 Fall",
+      "∆ Satisfied: First Year Data Lab", "· Courses: 1 required, 1 taken, 0 needed",
+      "IDST  111L SYNTHETIC DATA LAB 1.00 2026 Fall PS",
+      "Overall Requirement Not Satisfied: Focus Capacities",
+      "∆ Not Satisfied: Ways of Knowing", "· Courses: 1 required, 0 taken, 1 needed",
+      "∆ Satisfied: Power and Society", "· Courses: 1 required, 1 taken, 0 needed", "BUSI  200 SYNTHETIC LEADERSHIP 3.00 2026 Fall"
+    ],
+    [
+      "Overall Requirement Not Satisfied: Reflection and Integration: R&D; Hi-", "Impact; Interdisciplinary; LFIT",
+      "∆ Not Satisfied: Interdisciplinary Course", "· Courses: 1 required, 0 taken, 1 needed",
+      "Not Satisfied: Major: Business Administration", "   Overall Requirement Not Satisfied: Business Administration Major Courses",
+      "∆ Admission to the School of Business from the General", "College", "· Courses: 1 required, 0 taken, 1 needed",
+      "∆ Not Satisfied: BUSI 401", "· Courses: 1 required, 0 taken, 1 needed",
+      "   Overall Requirement Not Satisfied: Business Electives", "∆ Not Satisfied: Business Electives", "· Units: 19.50 required, 0.00 taken, 19.50 needed",
+      "Not Satisfied: Campus Life Experience", "∆ Not Satisfied: Campus Life Experience", "· Courses: 8 required, 1 taken, 7 needed", "Synthetic campus event", "1.00 2026-08-27",
+      " Electives and Non-Degree Applicable", "∆ Electives",
+      "AMST  ---- SYNTHETIC GENERAL ELECTIVE 3.00 2026 Fall TR", "AMST  ---- SYNTHETIC GENERAL ELECTIVE 3.00 2026 Fall TR",
+      "SPAN  101 SYNTHETIC LANGUAGE 0.00 2026 Fall PL",
+      " Focus Capacities Tally", "   Focus Capacities Tally", "∆ Ways of Knowing", "· Courses: 1 taken", "BUSI  200 SYNTHETIC LEADERSHIP 3.00 2026 Fall",
+      "∆ Power and Society", "· Courses: 1 taken", "BUSI  200 SYNTHETIC LEADERSHIP 3.00 2026 Fall"
+    ]
+  ],
+  "expected": {"attempts": 6, "in_progress": 2, "completed": 4, "requirements": 19}
+}

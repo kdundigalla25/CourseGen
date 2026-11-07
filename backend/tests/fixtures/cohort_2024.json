@@ -1,0 +1,25 @@
+{
+  "description": "Synthetic CS-shaped audit; independent career and major terms and cross-page continuations.",
+  "pages": [
+    [
+      "Program Requirement", "Term", " Undergraduate Career 2024 Fall", " AS Bachelor of Science Program 2024 Fall", " Computer Science (BS) Major 2025 Fall",
+      " Catalog Year 2024-2025 (Expand for Important Advisement Report", "Information)",
+      "Not Satisfied: In-Progress Courses/Temporary Grades", "∆ Not Satisfied: In-Progress Courses", "COMP  426 SYNTHETIC WEB COURSE 3.00 2026 Fall",
+      "Satisfied: First-Year Foundations", "∆ Satisfied: Triple-I: Ideas, Information, & Inquiry", "· Courses: 1 required, 1 taken, 0 needed",
+      "IDST  114 SYNTHETIC IDEAS", "INQUIRY", "3.00 2024 Fall A",
+      "∆ Satisfied: Data Literacy", "· Courses: 1 required, 1 taken, 0 needed", "IDST  114L SYNTHETIC DATA LAB 1.00 2024 Fall A",
+      "Satisfied: Focus Capacities", "∆ Satisfied: Power, Difference, and Inequality", "· Courses: 1 required, 1 taken, 0 needed",
+      "PLAN  101 SYNTHETIC URBAN"
+    ],
+    [
+      "STUDIES", "3.00 2025 SumII A-",
+      "Satisfied: Major: Computer Science (BS)", "   Satisfied: Major Requirements",
+      "∆ Satisfied: COMP 210 (C or Higher)", "· Courses: 1 required, 1 taken, 0 needed", "COMP  210 SYNTHETIC DATA", "STRUCTURES", "3.00 2024 Fall A",
+      "∆ Satisfied: Additional COMP Courses", "· Courses: 2 required, 2 taken, 0 needed", "COMP  210 SYNTHETIC DATA", "STRUCTURES", "3.00 2024 Fall A", "COMP  426 SYNTHETIC WEB COURSE 3.00 2026 Fall",
+      "Not Satisfied: Campus Life Experience", "∆ Not Satisfied: Campus Life Experience", "· Courses: 8 required, 6 taken, 2 needed", "Synthetic campus event 0.00 2025-10-11",
+      " Electives", "∆ Electives", "COMP  110 SYNTHETIC TRANSFER 3.00 2024 Fall TR", "CHEM  101L SYNTHETIC EXAM LAB 1.00 2024 SumII BE",
+      " Focus Capacities Tally", "∆ Power, Difference and Inequality", "· Courses: 1 taken", "PLAN  101 SYNTHETIC URBAN", "STUDIES", "3.00 2025 SumII A-"
+    ]
+  ],
+  "expected": {"attempts": 7, "in_progress": 1, "completed": 6, "requirements": 14}
+}
